@@ -24,3 +24,49 @@
     text-transform: uppercase;
 }
 
+
+#button-container button {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1%;
+    font-size: 18px;
+    transition: 0.5s ease;
+}
+
+#button-container button:hover {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: white;
+    
+}
+
+#button-floor {
+    width: 99%;
+    margin: 0 auto;
+    padding: 1%;
+    font-size: 18px;
+}
+
+#button-content-container {
+    margin: 0 auto;
+    font-size: 18px;
+    transition: 0.5s ease;
+}
+
+#button-container {
+    margin-bottom: 1%;
+    width: 99%;
+    overflow-y: auto;
+}
+
+#bsulogo {
+    background-color: white;
+    border-radius: 50%;
+    width: 35%;
+    height: auto;
+    margin-top: 5%;
+}
+
+.toggled {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: white;
+}

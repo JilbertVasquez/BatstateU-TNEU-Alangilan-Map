@@ -38,7 +38,7 @@ function BuildingContainer() {
         {name: "GYM", 
         floors: [
             {name: "Floor 1", rooms: ["Room 101", "Room 102", "Room 103", "Room 104", "Room 105"]},
-            {name: "Floor 2", rooms: ["Room 201", "Room 202", "Room 203", "Room 204", "Room 205"]},
+            {name: "Floor 2", rooms: ["ICT Offices", "Room 202", "Room 203", "Room 204", "Room 205"]},
             {name: "Floor 3", rooms: ["Room 201", "Room 202", "Room 203", "Room 204", "Room 205"]},
         ]},
         {name: "STEER HUB", 
@@ -57,6 +57,19 @@ function BuildingContainer() {
         ]},
     ]
 
+    const [lastClickedIndex, setLastClickedIndex] = useState();
+
+    function toggleBackgroundButton(index) {
+    
+        if (lastClickedIndex === index) {
+            setLastClickedIndex(null);
+        } 
+        else {
+            setLastClickedIndex(index);
+        }
+        
+    }
+
     // return(
     //     <div className='buildingContainer'>
     //         <img id = "bsulogo" src="src\assets\batstateu-tneu-logo.png" alt="bsu-tneu-logo" />
@@ -65,25 +78,25 @@ function BuildingContainer() {
     // );
 
     const [searchTerm, setSearchTerm] = useState('');
-  const [buildingInfo, setBuildingInfo] = useState(null);
+    const [buildingInfo, setBuildingInfo] = useState(null);
 
-  const handleSearch = (searchRoom) => {
-    for (const building of buildings) {
-      for (const [floorIndex, floor] of building.floors.entries()) {
-        if (floor.rooms.includes(searchRoom)) {
-          setBuildingInfo({ buildingName: building.name, floorName: floor.name, floorIndex });
-          return;
+    const handleSearch = (searchRoom) => {
+        for (const building of buildings) {
+        for (const [floorIndex, floor] of building.floors.entries()) {
+            if (floor.rooms.includes(searchRoom)) {
+            setBuildingInfo({ buildingName: building.name, floorName: floor.name, floorIndex: floorIndex, searchRoom: searchRoom });
+            return;
+            }
         }
-      }
-    }
-    setBuildingInfo(null);
-  };
+        }
+        setBuildingInfo(null);
+    };
 
-  const handleChange = (e) => {
-    const offices = e.target.value;
-    setSearchTerm(offices);
-    handleSearch(offices);
-  };
+    const handleChange = (e) => {
+        const offices = e.target.value;
+        setSearchTerm(offices);
+        handleSearch(offices);
+    };
 
   return (
     <div className='buildingContainer'>
@@ -96,17 +109,21 @@ function BuildingContainer() {
         />
         {buildingInfo ? (
             <div>
-                <button>{buildingInfo.buildingName}</button>
+                {/* <button>{buildingInfo.buildingName}</button> */}
+                <button>See details...</button>
             </div>
-        ) : ( searchTerm && 
+            ) : (
+            
             <div id = "button-container">
-                {buildings.map((building, index) => (
-                    <div key={index}>
-                        <button>{building.name}</button>
-                    </div>
-                ))}
-            </div>
-        )}
+                    {buildings.map((building, index) => (
+                        <div key={index}>
+                            <button className={lastClickedIndex === index ? "toggled" : ""} onClick={() => {toggleBackgroundButton(index);}}>{building.name}</button>
+
+                        </div>
+                    ))}
+                    
+                </div>
+            )}
     </div>
   );
 }
