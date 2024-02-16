@@ -3,7 +3,7 @@
     width: 80%;
     background-color: rgba(0, 0, 255, 0.5);
     background: linear-gradient(90deg  ,rgba(0, 0, 255, 0.5), rgba(0, 149, 255, 0.5));
-    background-image: url("assets/bsu-alangilan-siteplan.jpg");
+    /* background-image: url("assets/bsu-alangilan-siteplan.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: 50%;
