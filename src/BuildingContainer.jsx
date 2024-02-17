@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 
 function BuildingContainer({ toggleFloorContainer }) {
 
+    // List of Buildings -> Floors -> Rooms
     const buildings = [
         {name: "CEAFA", 
         floors: [
@@ -58,6 +59,7 @@ function BuildingContainer({ toggleFloorContainer }) {
         ]},
     ]
 
+    // Toggle Background color of button
     const [lastClickedIndex, setLastClickedIndex] = useState();
 
     function toggleBackgroundButton(index) {
@@ -78,6 +80,7 @@ function BuildingContainer({ toggleFloorContainer }) {
     //     </div>
     // );
 
+    // useState for Search Function
     const [searchTerm, setSearchTerm] = useState('');
     const [buildingInfo, setBuildingInfo] = useState(null);
 
@@ -104,6 +107,8 @@ function BuildingContainer({ toggleFloorContainer }) {
         handleSearch(offices);
     };
 
+    
+
 return (
     <div className='buildingContainer'>
         <img id = "bsulogo" src="src\assets\batstateu-tneu-logo.png" alt="bsu-tneu-logo" />
@@ -128,11 +133,13 @@ return (
 
                         </div>
                     ))}
+
+                    
                     
                 </div>
             )}
     </div>
-  );
+    );
 }
 
 export default BuildingContainer
