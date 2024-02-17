@@ -25,7 +25,7 @@
 }
 
 
-#button-container button {
+.buttonContainer button {
     width: 100%;
     margin: 0 auto;
     padding: 1%;
@@ -33,7 +33,7 @@
     transition: 0.5s ease;
 }
 
-#button-container button:hover {
+.buttonContainer button:hover {
     background-color: rgba(255, 0, 0, 0.2);
     color: white;
     
@@ -52,7 +52,7 @@
     transition: 0.5s ease;
 }
 
-#button-container {
+.buttonContainer {
     margin-bottom: 1%;
     width: 99%;
     overflow-y: auto;
@@ -66,7 +66,23 @@
     margin-top: 5%;
 }
 
-.toggled {
+.buttonContainer .toggled {
     background-color: rgba(255, 0, 0, 0.2);
     color: white;
 }
+
+/* @keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+} */
+
+.toggledButtonSearch {
+    background: linear-gradient(90deg  ,rgb(0, 0, 255), rgba(0, 149, 255, 0.5));
+    color: white;
+}
+
+

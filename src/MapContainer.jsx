@@ -2,7 +2,7 @@ import './MapContainer.css'
 import FloorContainer from './FloorContainer'
 import React, { useState, useRef } from 'react';
 
-function MapContainer({showFloorContainer, backgroundImage, showFloor}) {
+function MapContainer({showFloorContainer, backgroundImage, showFloor, closeFloorContainer}) {
 
     // const [backgroundImage, setBackgroundImage] = useState('');
 

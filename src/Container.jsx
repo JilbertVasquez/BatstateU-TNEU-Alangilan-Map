@@ -31,24 +31,28 @@ function Container() {
 
         const timer = setTimeout(() => {
             setShowFloor(true);
-        }, 5000);
+        }, 1000);
 
         if (lastClickedIndex === index) {
             setLastClickedIndex(null);
             setShowFloorContainer(false);
             setBackgroundImage('src/assets/bsu-alangilan-siteplan.jpg');
             
-            clearTimer(timer);
+            // clearTimer(timer);
         } 
         else {
             setLastClickedIndex(index);
             setBackgroundImage(BackgroundColor[index]);
 
-            clearTimer(timer);
+            // clearTimer(timer);
             setTimer(timer);
         }
 
     };
+
+    const closeFloorContainer = () => {
+        setShowFloor(false);
+    }
 
 
 
@@ -58,8 +62,12 @@ function Container() {
 
     return(
         <div className='fullContainer'>
-            <BuildingContainer toggleFloorContainer={toggleFloorContainer}/>
-            <MapContainer showFloorContainer={showFloorContainer} backgroundImage={backgroundImage} showFloor={showFloor}/>
+            <BuildingContainer  toggleFloorContainer={toggleFloorContainer}/>
+            <MapContainer       showFloorContainer={showFloorContainer} 
+                                backgroundImage={backgroundImage} 
+                                showFloor={showFloor}
+                                
+                                />
 
         </div>
     );

@@ -11,4 +11,15 @@
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.floorContainer button {
+    color: white;
+    font-size: 16px;
+    height: 5%;
+    width: 10%;
+    background: linear-gradient(90deg  ,rgba(0, 0, 255, 0.5), rgba(0, 149, 255, 0.5));
 }

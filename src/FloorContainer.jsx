@@ -7,7 +7,7 @@ function FloorContainer() {
 
     return(
         <div className='floorContainer'>
-
+            <button >CLOSE</button>
         </div>
     )
 }
