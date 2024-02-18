@@ -15,4 +15,12 @@ body {
     height: 90vh;
     width: 95vw;
     padding: 0.5%;
+    margin: 0;
+}
+
+@media only screen and (max-width: 900px) {
+    .fullContainer {
+        flex-direction: column;
+        height: 95vh;
+    }
 }

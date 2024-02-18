@@ -86,3 +86,35 @@
 }
 
 
+@media only screen and (max-width: 900px) {
+    .buildingContainer {
+        background-color: blue;
+        height: 18%;
+        width: 100%;
+    }
+
+    #bsulogo {
+        background-color: white;
+        border-radius: 50%;
+        width: 8%;
+        height: auto;
+        margin-top: 0.5%;
+    }
+
+    .buttonContainer  {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .buttonContainer  button {
+        font-size: 12px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        max-width: 500px;
+        width: 120px;
+    }
+
+}

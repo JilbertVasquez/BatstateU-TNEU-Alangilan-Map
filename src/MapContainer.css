@@ -44,3 +44,11 @@
     cursor: grab;
     scale: 1.5;
   }
+
+  @media only screen and (max-width: 900px) {
+    .mapContainer {
+      width: 100%;
+      height: 84%;
+      background-size: cover;
+    }
+  }
