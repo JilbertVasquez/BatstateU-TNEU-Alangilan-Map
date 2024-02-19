@@ -71,26 +71,59 @@ function CICSBuilding() {
         setIsVisible(!isVisible);
     };
 
+    // toggled room after using search function
+    const [searchTerm, setSearchTerm] = useState('');
+    const [matchingButtons, setMatchingButtons] = useState([]);
+
+    const handleSearch = (event) => {
+        const searchText = event.target.value.toLowerCase(); // Convert search term to lowercase
+        setSearchTerm(searchText);
+
+        const buttons = Array.from(document.querySelectorAll('.roomHeader button'));
+        const matchingButtons = buttons.filter(button => button.textContent.toLowerCase().includes(searchText));
+        setMatchingButtons(matchingButtons);
+    }
+
     
 
     return(
-        <div className={isVisible ? 'floorContainer' : 'floorContainer-hidden'}>
+        <div className={isVisible ? 'floorSection' : 'floorSection-hidden'}>
+            <div className={isVisible ? 'floorContainer' : 'floorContainer-hidden'}>
+                <div className='floorHeader'>
+                    <button className={`CICSFloorButtons ${lastClickedIndex === 0 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(0) }}>floor 1</button>
+                    <button className={`CICSFloorButtons ${lastClickedIndex === 1 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(1) }}>floor 2</button>
+                    <button className={`CICSFloorButtons ${lastClickedIndex === 2 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(2) }}>floor 3</button>
+                    <button className={`CICSFloorButtons ${lastClickedIndex === 3 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(3) }}>floor 4</button>
+                    <button className={`CICSFloorButtons ${lastClickedIndex === 4 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(4) }}>floor 5</button>
+                </div>
+                <div className='roomHeader'>
+                    {isFloor1Visible && <Floor1 />}
+                    {isFloor2Visible && <Floor2 />}
+                    {isFloor3Visible && <Floor3 />}
+                    {isFloor4Visible && <Floor4 />}
+                    {isFloor5Visible && <Floor5 />}
+                </div>
 
-            <div className='floorHeader'>
-                <button className={`CICSFloorButtons ${lastClickedIndex === 0 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(0) }}>floor 1</button>
-                <button className={`CICSFloorButtons ${lastClickedIndex === 1 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(1) }}>floor 2</button>
-                <button className={`CICSFloorButtons ${lastClickedIndex === 2 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(2) }}>floor 3</button>
-                <button className={`CICSFloorButtons ${lastClickedIndex === 3 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(3) }}>floor 4</button>
-                <button className={`CICSFloorButtons ${lastClickedIndex === 4 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(4) }}>floor 5</button>
-            </div>
-            <div className='roomHeader'>
-                {isFloor1Visible && <Floor1 />}
-                {isFloor2Visible && <Floor2 />}
-                {isFloor3Visible && <Floor3 />}
-                {isFloor4Visible && <Floor4 />}
-                {isFloor5Visible && <Floor5 />}
+                {/* <div>
+                <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    placeholder="Search..."
+                />
+                    <p>Matching buttons:</p>
+                    <ul>
+                        {matchingButtons.map((button, index) => (
+                            <li key={index}>{button.textContent}</li>
+                        ))}
+                    </ul>
+                </div> */}
+
             </div>
 
+            <div className='floorPlanContainer'>
+
+            </div>
             <button className='closeButton' onClick={toggleVisibility}>CLOSE</button>
         </div>
     )
@@ -100,7 +133,7 @@ function Floor1 () {
     
     return (
         <div className='roomHeader'>
-            <button>Room 101</button>
+            <button >Room 101</button>
             <button>Room 102</button>
             <button>Room 103</button>
             <button>Room 104</button>

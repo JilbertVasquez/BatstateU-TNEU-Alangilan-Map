@@ -16,6 +16,7 @@
 }
 
 #search-id {
+    height: 5%;
     padding: 1%;
     width: 99%;
     margin: 5% auto 0;
@@ -25,7 +26,7 @@
 }
 
 
-.buttonContainer button {
+.buttonContainer .buildingButton {
     width: 100%;
     margin: 0 auto;
     padding: 1%;
@@ -56,6 +57,11 @@
     margin-bottom: 1%;
     width: 99%;
     overflow-y: auto;
+}
+
+.buildingContainer #search-id {
+    text-align: center;
+    font-size: 10px;
 }
 
 #bsulogo {

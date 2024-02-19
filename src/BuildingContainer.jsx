@@ -45,7 +45,7 @@ function BuildingContainer({ toggleFloorContainer, buildingList}) {
                 floorName: floor.name, 
                 floorIndex: floorIndex, 
                 searchRoom: searchRoom });
-            
+
                 return;
             }
         }
@@ -54,11 +54,11 @@ function BuildingContainer({ toggleFloorContainer, buildingList}) {
     };
 
     const handleChange = (e) => {
-        const offices = e.target.value;
+        const offices = e.target.value.toLowerCase();
         setSearchTerm(offices);
         handleSearch(offices);
-    };
 
+    };
     
 
 return (
@@ -66,7 +66,7 @@ return (
         <img id = "bsulogo" src="src\assets\batstateu-tneu-logo.png" alt="bsu-tneu-logo" />
         <input id = 'search-id'
             type="search"
-            placeholder="Search..."
+            placeholder="search office here"
             value={searchTerm}
             onChange={handleChange}
         />
@@ -74,7 +74,7 @@ return (
             <div className= "buttonContainer">
                 {console.log(buildingInfo.buildingIndex)}
                 {console.log(lastClickedIndex)}
-                <button className={lastClickedIndex === buildingInfo.buildingIndex ? "" : "toggledButtonSearch"} onClick={() => {toggleBackgroundButton(buildingInfo.buildingIndex); toggleFloorContainer(buildingInfo.buildingIndex) }}>{buildingInfo.buildingName}</button>
+                <button className={`buildingButton ${lastClickedIndex === buildingInfo.buildingIndex ? "" : "toggledButtonSearch"}`} onClick={() => {toggleBackgroundButton(buildingInfo.buildingIndex); toggleFloorContainer(buildingInfo.buildingIndex) }}>{buildingInfo.buildingName}</button>
                 {/* <button>See details...</button> */}
             </div>
             ) : (
@@ -82,7 +82,7 @@ return (
             <div className = "buttonContainer">
                     {buildings.map((building, index) => (
                         <div key={index}>
-                            <button className={lastClickedIndex === index ? "toggled" : ""} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(index) }}>{building.name} </button>
+                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(index) }}>{building.name} </button>
 
                         </div>
                     ))}
