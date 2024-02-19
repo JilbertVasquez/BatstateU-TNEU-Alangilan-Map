@@ -65,10 +65,16 @@ function CICSBuilding() {
         }
     }
     
-    const [isVisible, setIsVisible] = useState(true);
+    const [isFloorSectionVisible, setFloorSectionVisible] = useState(true);
 
-    const toggleVisibility = () => {
-        setIsVisible(!isVisible);
+    const [isFloorContainerVisible, setFloorContainerVisible] = useState(true);
+
+    const toggleFloorSectionVisibility = () => {
+        setFloorSectionVisible(!isFloorSectionVisible);
+    };
+
+    const toggleFloorContainerVisible = () => {
+        setFloorContainerVisible(!isFloorContainerVisible);
     };
 
     // toggled room after using search function
@@ -87,8 +93,8 @@ function CICSBuilding() {
     
 
     return(
-        <div className={isVisible ? 'floorSection' : 'floorSection-hidden'}>
-            <div className={isVisible ? 'floorContainer' : 'floorContainer-hidden'}>
+        <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
+            <div className={isFloorContainerVisible ? 'floorContainer' : 'floorContainer-hidden'}>
                 <div className='floorHeader'>
                     <button className={`CICSFloorButtons ${lastClickedIndex === 0 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(0) }}>floor 1</button>
                     <button className={`CICSFloorButtons ${lastClickedIndex === 1 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(1) }}>floor 2</button>
@@ -97,7 +103,7 @@ function CICSBuilding() {
                     <button className={`CICSFloorButtons ${lastClickedIndex === 4 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(4) }}>floor 5</button>
                 </div>
                 <div className='roomHeader'>
-                    {isFloor1Visible && <Floor1 />}
+                    {isFloorContainerVisible && <Floor1 toggleFloorContainerVisible={toggleFloorContainerVisible}/>}
                     {isFloor2Visible && <Floor2 />}
                     {isFloor3Visible && <Floor3 />}
                     {isFloor4Visible && <Floor4 />}
@@ -118,22 +124,21 @@ function CICSBuilding() {
                         ))}
                     </ul>
                 </div> */}
-
+                <button className='closeButton' onClick={toggleFloorSectionVisibility}>CLOSE</button>
             </div>
 
             <div className='floorPlanContainer'>
 
             </div>
-            <button className='closeButton' onClick={toggleVisibility}>CLOSE</button>
         </div>
     )
 }
 
-function Floor1 () {
+function Floor1 ({toggleFloorContainerVisible}) {
     
     return (
         <div className='roomHeader'>
-            <button >Room 101</button>
+            <button onClick={toggleFloorContainerVisible}>Room 101</button>
             <button>Room 102</button>
             <button>Room 103</button>
             <button>Room 104</button>
