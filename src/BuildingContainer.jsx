@@ -66,7 +66,7 @@ return (
         <img id = "bsulogo" src="src\assets\batstateu-tneu-logo.png" alt="bsu-tneu-logo" />
         <input id = 'search-id'
             type="search"
-            placeholder="search office here"
+            placeholder="search office here..."
             value={searchTerm}
             onChange={handleChange}
         />

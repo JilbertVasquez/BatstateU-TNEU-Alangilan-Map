@@ -116,8 +116,9 @@
 
 .floorPlanLayout {
     background-color: yellow;
-    width: 100%;
-    height: 95%;
+    width: 98%;
+    height: 90%;
+    padding: 1%;
     max-height: 100%;
     max-height: 100%;
     overflow: hidden;
@@ -127,7 +128,7 @@
 }
 
 .floorPlanImage {
-    width: 100%;
+    width: 90%;
     height: auto;
     object-fit: contain;
 }
