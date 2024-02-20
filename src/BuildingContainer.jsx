@@ -73,7 +73,7 @@ return (
             <div className= "buttonContainer">
                 {console.log(buildingInfo.buildingIndex)}
                 {console.log(lastClickedIndex)}
-                <button className={`buildingButton ${lastClickedIndex === buildingInfo.buildingIndex ? "" : "toggledButtonSearch"}`} onClick={() => {toggleBackgroundButton(buildingInfo.buildingIndex); toggleFloorContainer(buildingInfo.buildingIndex) }}>{buildingInfo.buildingName}</button>
+                <button className={`buildingButton ${lastClickedIndex === buildingInfo.buildingIndex ? "" : "toggledButtonSearch"}`} onClick={() => {toggleBackgroundButton(buildingInfo.buildingName, buildingInfo.buildingIndex); toggleFloorContainer(buildingInfo.buildingIndex) }}>{buildingInfo.buildingName}</button>
                 {/* <button>See details...</button> */}
             </div>
             ) : (
@@ -81,7 +81,7 @@ return (
             <div className = "buttonContainer">
                     {buildings.map((building, index) => (
                         <div key={index}>
-                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(index); activateBuildingMap(building.name); }}>{building.name} </button>
+                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(building.name, index); activateBuildingMap(building.name); }}>{building.name} </button>
 
                         </div>
                     ))}

@@ -83,7 +83,7 @@ function Container() {
             setCEAFABuilding(true);
             setCICSBuilding(false);
         }
-        else if (buildingName === 'CICS' && lastClickedIndex == null) {
+        else if (buildingName === 'CICS') {
             setCEAFABuilding(false);
             setCICSBuilding(true);
         }
@@ -91,19 +91,19 @@ function Container() {
             setCEAFABuilding(false);
             setCICSBuilding(false);
         }
-        console.log(buildingName);
     }
 
     // Toggle Floor Container
     const [showFloorContainer, setShowFloorContainer] = useState(false);
     const [lastClickedIndex, setLastClickedIndex] = useState();
 
-    const [showFloor, setShowFloor] = useState(false);
+    const [showCICSBuilding, setShowCICSBuilding] = useState(false);
+    const [showCEAFABuilding, setShowCEAFABuilding] = useState(false);
     
-    const toggleFloorContainer = (index) => {
-        setShowFloorContainer(true);
-        setCICSBuilding(!isCICSBuilding);
-        console.log(isCICSBuilding);
+    const toggleFloorContainer = (buildingName, index) => {
+        
+        // setCICSBuilding(!isCICSBuilding);
+        // setCEAFABuilding(isCEAFABuilding);
 
         // const timer = setTimeout(() => {
         //     setShowFloor(true);
@@ -113,24 +113,37 @@ function Container() {
             setLastClickedIndex(null);
             setShowFloorContainer(false);
             setBackgroundImage('src/assets/bsu-alangilan-siteplan.jpg');
-            
-            // clearTimer(timer);
         } 
         else {
             setLastClickedIndex(index);
+            setShowFloorContainer(false);
             setBackgroundImage(BackgroundColor[index]);
-            setShowFloor(true);
-
-            // clearTimer(timer);
-            // setTimer(timer);
         }
 
+        if (buildingName === 'CEAFA') {
+            setShowCEAFABuilding(true);
+            setShowCICSBuilding(false);
+        }
+        else if (buildingName === 'CICS') {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(true);
+        }
+
+    };
+
+
+    // is video ended
+    const [isvideoEnded, setVideoEnded] = useState(false);
+
+    const handleVideoEnd = () => {
+        setVideoEnded(true);
+        setShowFloorContainer(true);
     };
 
     
 
     const closeFloorContainer = () => {
-        setShowFloor(false);
+        setShowCICSBuilding(false);
     }
 
 
@@ -142,11 +155,15 @@ function Container() {
     return(
         <div className='fullContainer'>
             <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} />
-            <MapContainer       showFloorContainer={showFloorContainer} 
+            <MapContainer       
+            showFloorContainer={showFloorContainer} 
                                 backgroundImage={backgroundImage} 
-                                showFloor={showFloor}
+                                showCEAFABuilding={showCEAFABuilding}
+                                showCICSBuilding={showCICSBuilding}
                                 isCEAFABuilding={isCEAFABuilding}
                                 isCICSBuilding={isCICSBuilding}
+                                handleVideoEnd={handleVideoEnd}
+                                isvideoEnded={isvideoEnded}
                                 
                                 />
 
