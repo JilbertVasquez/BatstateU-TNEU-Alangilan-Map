@@ -3,10 +3,11 @@ import FloorContainer from './FloorContainer'
 import React, { useState, useRef } from 'react';
 import CICSBuilding from './CICSBuilding';
 import CEAFABuilding from './CEAFABuilding';
+import RGRBuilding from './RGRBuilding';
 
 
 
-function MapContainer({showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, isCICSBuilding, isCEAFABuilding, handleVideoEnd, isvideoEnded}) {
+function MapContainer({showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showRGRBuilding, isCICSBuilding, isCEAFABuilding, isRGRBuilding, handleVideoEnd, isvideoEnded}) {
 
     // const [backgroundImage, setBackgroundImage] = useState('');
 
@@ -26,9 +27,13 @@ function MapContainer({showFloorContainer, backgroundImage, showCEAFABuilding, s
         <div className='mapContainer'>
             {isCEAFABuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isCICSBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
+            
+            {isRGRBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             <div className='buildingSection'>
                 {isvideoEnded && showCEAFABuilding && showFloorContainer && <CEAFABuilding />}
                 {isvideoEnded && showCICSBuilding && showFloorContainer && <CICSBuilding />}
+
+                {isvideoEnded && showRGRBuilding && showFloorContainer && <RGRBuilding />}
             </div>
             {/* <img src="src\assets\bsu-alangilan-siteplan.jpg" alt="AlangilanCampus"/> */}
         </div>

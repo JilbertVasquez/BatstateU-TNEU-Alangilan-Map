@@ -78,18 +78,28 @@ function Container() {
     const [isCEAFABuilding, setCEAFABuilding] = useState();
     const [isCICSBuilding, setCICSBuilding] = useState();
 
+    const [isRGRBuilding, setRGRBuilding] = useState();
+
     const activateBuildingMap = (buildingName) => {
         if (buildingName === 'CEAFA') {
             setCEAFABuilding(true);
             setCICSBuilding(false);
+            setRGRBuilding(false);
         }
         else if (buildingName === 'CICS') {
             setCEAFABuilding(false);
             setCICSBuilding(true);
+            setRGRBuilding(false);
+        }
+        else if (buildingName === 'RGR') {
+            setCEAFABuilding(false);
+            setCICSBuilding(false);
+            setRGRBuilding(true);
         }
         else {
             setCEAFABuilding(false);
             setCICSBuilding(false);
+            setRGRBuilding(false);
         }
     }
 
@@ -99,6 +109,8 @@ function Container() {
 
     const [showCICSBuilding, setShowCICSBuilding] = useState(false);
     const [showCEAFABuilding, setShowCEAFABuilding] = useState(false);
+
+    const [showRGRBuilding, setShowRGRBuilding] = useState(false);
     
     const toggleFloorContainer = (buildingName, index) => {
         
@@ -111,7 +123,7 @@ function Container() {
 
         if (lastClickedIndex === index) {
             setLastClickedIndex(null);
-            setShowFloorContainer(false);
+            setShowFloorContainer(true);
             setBackgroundImage('src/assets/bsu-alangilan-siteplan.jpg');
         } 
         else {
@@ -123,10 +135,17 @@ function Container() {
         if (buildingName === 'CEAFA') {
             setShowCEAFABuilding(true);
             setShowCICSBuilding(false);
+            setShowRGRBuilding(false);
         }
         else if (buildingName === 'CICS') {
             setShowCEAFABuilding(false);
             setShowCICSBuilding(true);
+            setShowRGRBuilding(false);
+        }
+        else if (buildingName === 'RGR') {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(false);
+            setShowRGRBuilding(true);
         }
 
     };
@@ -160,8 +179,10 @@ function Container() {
                                 backgroundImage={backgroundImage} 
                                 showCEAFABuilding={showCEAFABuilding}
                                 showCICSBuilding={showCICSBuilding}
+                                showRGRBuilding={showRGRBuilding}
                                 isCEAFABuilding={isCEAFABuilding}
                                 isCICSBuilding={isCICSBuilding}
+                                isRGRBuilding={isRGRBuilding}
                                 handleVideoEnd={handleVideoEnd}
                                 isvideoEnded={isvideoEnded}
                                 

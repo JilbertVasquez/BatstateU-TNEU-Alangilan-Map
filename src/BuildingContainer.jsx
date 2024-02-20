@@ -90,7 +90,6 @@ return (
                     
                 </div>
             )}
-            <button >CLOSE</button>
     </div>
     );
 }
