@@ -113,6 +113,7 @@ function CICSBuilding() {
     const handleSearch = (event) => {
         const searchText = event.target.value.toLowerCase(); // Convert search term to lowercase
         setSearchTerm(searchText);
+        
 
         const buttons = Array.from(document.querySelectorAll('.roomHeader button'));
         const matchingButtons = buttons.filter(button => button.textContent.toLowerCase().includes(searchText));
@@ -133,10 +134,10 @@ function CICSBuilding() {
                 </div>
                 <div className='roomHeader'>
                     {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloor2Visible && <Floor2 />}
-                    {isFloor3Visible && <Floor3 />}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
                     {isFloorContainerVisible && isFloor4Visible && <Floor4 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloor5Visible && <Floor5 />}
+                    {isFloorContainerVisible && isFloor5Visible && <Floor5 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
                 </div>
 
                 {/* <div>
@@ -146,7 +147,6 @@ function CICSBuilding() {
                     onChange={handleSearch}
                     placeholder="Search..."
                 />
-                    <p>Matching buttons:</p>
                     <ul>
                         {matchingButtons.map((button, index) => (
                             <li key={index}>{button.textContent}</li>

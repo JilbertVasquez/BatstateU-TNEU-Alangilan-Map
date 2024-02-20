@@ -74,6 +74,26 @@ function Container() {
         
     ]
 
+    // Building Maps
+    const [isCEAFABuilding, setCEAFABuilding] = useState();
+    const [isCICSBuilding, setCICSBuilding] = useState();
+
+    const activateBuildingMap = (buildingName) => {
+        if (buildingName === 'CEAFA') {
+            setCEAFABuilding(true);
+            setCICSBuilding(false);
+        }
+        else if (buildingName === 'CICS' && lastClickedIndex == null) {
+            setCEAFABuilding(false);
+            setCICSBuilding(true);
+        }
+        else {
+            setCEAFABuilding(false);
+            setCICSBuilding(false);
+        }
+        console.log(buildingName);
+    }
+
     // Toggle Floor Container
     const [showFloorContainer, setShowFloorContainer] = useState(false);
     const [lastClickedIndex, setLastClickedIndex] = useState();
@@ -82,6 +102,8 @@ function Container() {
     
     const toggleFloorContainer = (index) => {
         setShowFloorContainer(true);
+        setCICSBuilding(!isCICSBuilding);
+        console.log(isCICSBuilding);
 
         // const timer = setTimeout(() => {
         //     setShowFloor(true);
@@ -105,6 +127,8 @@ function Container() {
 
     };
 
+    
+
     const closeFloorContainer = () => {
         setShowFloor(false);
     }
@@ -117,10 +141,12 @@ function Container() {
 
     return(
         <div className='fullContainer'>
-            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings}/>
+            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} />
             <MapContainer       showFloorContainer={showFloorContainer} 
                                 backgroundImage={backgroundImage} 
                                 showFloor={showFloor}
+                                isCEAFABuilding={isCEAFABuilding}
+                                isCICSBuilding={isCICSBuilding}
                                 
                                 />
 

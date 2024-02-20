@@ -8,15 +8,37 @@
     /* background-image: url('src/assets/rotate_earth.gif'); */
 
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position-x: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
-    
 }
+
+.buildingSection {
+  height: 100%;
+  width: 100%;
+  /* background-color: rgba(0, 0, 255, 0.5); */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.mapContainer video {
+  z-index: 1;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+
 
 .button1 {
     background-image: url('src/assets/rotate_earth.gif');

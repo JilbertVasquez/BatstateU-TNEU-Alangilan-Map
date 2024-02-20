@@ -1,9 +1,8 @@
 import './BuildingContainer.css'
 
-
 import React, { useState } from 'react';
 
-function BuildingContainer({ toggleFloorContainer, buildingList}) {
+function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildingMap}) {
 
     const buildings = buildingList;
 
@@ -82,7 +81,7 @@ return (
             <div className = "buttonContainer">
                     {buildings.map((building, index) => (
                         <div key={index}>
-                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(index) }}>{building.name} </button>
+                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(index); activateBuildingMap(building.name); }}>{building.name} </button>
 
                         </div>
                     ))}
