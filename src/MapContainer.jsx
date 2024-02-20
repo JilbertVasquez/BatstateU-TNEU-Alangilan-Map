@@ -13,7 +13,7 @@ function MapContainer({showFloorContainer, backgroundImage, showFloor, isCICSBui
     //     setBackgroundImage(imagePath);
     // };
 
-    const [isvideoEnded, setVideoEnded] = useState();
+    const [isvideoEnded, setVideoEnded] = useState(false);
 
     const handleVideoEnd = () => {
         setVideoEnded(true);
@@ -29,7 +29,6 @@ function MapContainer({showFloorContainer, backgroundImage, showFloor, isCICSBui
         <div className='mapContainer'>
             {isCEAFABuilding && <video src="src\assets\ifbread.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isCICSBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            { isCICSBuilding && <p>HELLO</p>}
             <div className='buildingSection'>
                 {isvideoEnded && showFloor && showFloorContainer && <CICSBuilding />}
             </div>
