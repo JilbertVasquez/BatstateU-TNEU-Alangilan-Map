@@ -75,32 +75,50 @@ function Container() {
     ]
 
     // Building Maps
+    const [isCampusMap, setCampusMap] = useState(true);
     const [isCEAFABuilding, setCEAFABuilding] = useState();
     const [isCICSBuilding, setCICSBuilding] = useState();
-
+    const [isCITBuilding, setCITBuilding] = useState();
     const [isRGRBuilding, setRGRBuilding] = useState();
 
     const activateBuildingMap = (buildingName) => {
         if (buildingName === 'CEAFA') {
+            setCampusMap(false);
             setCEAFABuilding(true);
             setCICSBuilding(false);
+            setCITBuilding(false);
             setRGRBuilding(false);
         }
         else if (buildingName === 'CICS') {
+            setCampusMap(false);
             setCEAFABuilding(false);
             setCICSBuilding(true);
+            setCITBuilding(false);
             setRGRBuilding(false);
         }
         else if (buildingName === 'RGR') {
+            setCampusMap(false);
             setCEAFABuilding(false);
             setCICSBuilding(false);
+            setCITBuilding(false);
             setRGRBuilding(true);
         }
-        else {
+        else if (buildingName === 'CIT') {
+            setCampusMap(false);
             setCEAFABuilding(false);
             setCICSBuilding(false);
+            setCITBuilding(true);
             setRGRBuilding(false);
         }
+        else {
+            setCampusMap(true);
+            setCEAFABuilding(false);
+            setCICSBuilding(false);
+            setCITBuilding(false);
+            setRGRBuilding(false);
+            setShowFloorContainer(false);
+        }
+        
     }
 
     // Toggle Floor Container
@@ -109,7 +127,7 @@ function Container() {
 
     const [showCICSBuilding, setShowCICSBuilding] = useState(false);
     const [showCEAFABuilding, setShowCEAFABuilding] = useState(false);
-
+    const [showCITBuilding, setShowCITBuilding] = useState(false);
     const [showRGRBuilding, setShowRGRBuilding] = useState(false);
     
     const toggleFloorContainer = (buildingName, index) => {
@@ -123,28 +141,45 @@ function Container() {
 
         if (lastClickedIndex === index) {
             setLastClickedIndex(null);
-            setShowFloorContainer(true);
+            setShowFloorContainer(false);
             setBackgroundImage('src/assets/bsu-alangilan-siteplan.jpg');
         } 
         else {
+            if (lastClickedIndex != index && lastClickedIndex != null) {
+                setShowFloorContainer(false);
+                
+            }
+            else {
+                
+                setShowFloorContainer(true);
+            }
             setLastClickedIndex(index);
-            setShowFloorContainer(false);
+            // setShowFloorContainer(true);
             setBackgroundImage(BackgroundColor[index]);
         }
 
         if (buildingName === 'CEAFA') {
             setShowCEAFABuilding(true);
             setShowCICSBuilding(false);
+            setShowCITBuilding(false);
             setShowRGRBuilding(false);
         }
         else if (buildingName === 'CICS') {
             setShowCEAFABuilding(false);
             setShowCICSBuilding(true);
+            setShowCITBuilding(false);
+            setShowRGRBuilding(false);
+        }
+        else if (buildingName === 'CIT') {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(false);
+            setShowCITBuilding(true);
             setShowRGRBuilding(false);
         }
         else if (buildingName === 'RGR') {
             setShowCEAFABuilding(false);
             setShowCICSBuilding(false);
+            setShowCITBuilding(false);
             setShowRGRBuilding(true);
         }
 
@@ -179,9 +214,13 @@ function Container() {
                                 backgroundImage={backgroundImage} 
                                 showCEAFABuilding={showCEAFABuilding}
                                 showCICSBuilding={showCICSBuilding}
+                                showCITBuilding={showCITBuilding}
                                 showRGRBuilding={showRGRBuilding}
+
+                                isCampusMap={isCampusMap}
                                 isCEAFABuilding={isCEAFABuilding}
                                 isCICSBuilding={isCICSBuilding}
+                                isCITBuilding={isCITBuilding}
                                 isRGRBuilding={isRGRBuilding}
                                 handleVideoEnd={handleVideoEnd}
                                 isvideoEnded={isvideoEnded}
