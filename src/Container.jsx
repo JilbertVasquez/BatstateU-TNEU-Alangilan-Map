@@ -44,7 +44,7 @@ function Container() {
             {name: "Floor 2", rooms: ["ICT Offices", "Room 202", "Room 203", "Room 204", "Room 205"]},
             {name: "Floor 3", rooms: ["Room 201", "Room 202", "Room 203", "Room 204", "Room 205"]},
         ]},
-        {name: "STEER HUB", 
+        {name: "STEERHUB", 
         floors: [
             {name: "Floor 1", rooms: ["Room 101", "Room 102", "Room 103", "Room 104", "Room 105"]},
             {name: "Floor 2", rooms: ["Room 201", "Room 202", "Room 203", "Room 204", "Room 205"]},
@@ -81,6 +81,8 @@ function Container() {
     const [isCITBuilding, setCITBuilding] = useState();
     const [isRGRBuilding, setRGRBuilding] = useState();
     const [isSCSBuilding, setSCSBuilding] = useState();
+    const [isGYMBuilding, setGYMBuilding] = useState();
+    const [isSteerHubBuilding, setSteerHubBuilding] = useState();
 
     const activateBuildingMap = (buildingName) => {
         if (buildingName === 'CEAFA') {
@@ -90,6 +92,8 @@ function Container() {
             setCITBuilding(false);
             setRGRBuilding(false);
             setSCSBuilding(false);
+            setGYMBuilding(false);
+            setSteerHubBuilding(false);
 
         }
         else if (buildingName === 'CICS') {
@@ -99,6 +103,8 @@ function Container() {
             setCITBuilding(false);
             setRGRBuilding(false);
             setSCSBuilding(false);
+            setGYMBuilding(false);
+            setSteerHubBuilding(false);
         }
         else if (buildingName === 'RGR') {
             setCampusMap(false);
@@ -107,6 +113,8 @@ function Container() {
             setCITBuilding(false);
             setRGRBuilding(true);
             setSCSBuilding(false);
+            setGYMBuilding(false);
+            setSteerHubBuilding(false);
         }
         else if (buildingName === 'CIT') {
             setCampusMap(false);
@@ -115,6 +123,8 @@ function Container() {
             setCITBuilding(true);
             setRGRBuilding(false);
             setSCSBuilding(false);
+            setGYMBuilding(false);
+            setSteerHubBuilding(false);
         }
         else if (buildingName === 'STUDENT SERVICES') {
             setCampusMap(false);
@@ -123,6 +133,28 @@ function Container() {
             setCITBuilding(false);
             setRGRBuilding(false);
             setSCSBuilding(true);
+            setGYMBuilding(false);
+            setSteerHubBuilding(false);
+        }
+        else if (buildingName === 'GYM') {
+            setCampusMap(false);
+            setCEAFABuilding(false);
+            setCICSBuilding(false);
+            setCITBuilding(false);
+            setRGRBuilding(false);
+            setSCSBuilding(false);
+            setGYMBuilding(true);
+            setSteerHubBuilding(false);
+        }
+        else if (buildingName === 'STEERHUB') {
+            setCampusMap(false);
+            setCEAFABuilding(false);
+            setCICSBuilding(false);
+            setCITBuilding(false);
+            setRGRBuilding(false);
+            setSCSBuilding(false);
+            setGYMBuilding(false);
+            setSteerHubBuilding(true);
         }
         else {
             setCampusMap(true);
@@ -130,7 +162,11 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
+            setSCSBuilding(false);
+            setGYMBuilding(false);
+            setSteerHubBuilding(false);
             setShowFloorContainer(false);
+            
         }
         
     }
@@ -144,6 +180,8 @@ function Container() {
     const [showCITBuilding, setShowCITBuilding] = useState(false);
     const [showRGRBuilding, setShowRGRBuilding] = useState(false);
     const [showSCSBuilding, setShowSCSBuilding] = useState(false);
+    const [showGYMBuilding, setShowGYMBuilding] = useState(false);
+    const [showSteerHubBuilding, setShowSteerHubBuilding] = useState(false);
     
     const toggleFloorContainer = (buildingName, index) => {
         
@@ -179,6 +217,8 @@ function Container() {
             setShowCITBuilding(false);
             setShowRGRBuilding(false);
             setShowSCSBuilding(false);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(false);
         }
         else if (buildingName === 'CICS') {
             setShowCEAFABuilding(false);
@@ -186,6 +226,8 @@ function Container() {
             setShowCITBuilding(false);
             setShowRGRBuilding(false);
             setShowSCSBuilding(false);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(false);
         }
         else if (buildingName === 'CIT') {
             setShowCEAFABuilding(false);
@@ -193,6 +235,8 @@ function Container() {
             setShowCITBuilding(true);
             setShowRGRBuilding(false);
             setShowSCSBuilding(false);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(false);
         }
         else if (buildingName === 'RGR') {
             setShowCEAFABuilding(false);
@@ -200,6 +244,8 @@ function Container() {
             setShowCITBuilding(false);
             setShowRGRBuilding(true);
             setShowSCSBuilding(false);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(false);
         }
         else if (buildingName === 'STUDENT SERVICES') {
             setShowCEAFABuilding(false);
@@ -207,6 +253,35 @@ function Container() {
             setShowCITBuilding(false);
             setShowRGRBuilding(false);
             setShowSCSBuilding(true);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(false);
+        }
+        else if (buildingName === 'GYM') {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(false);
+            setShowCITBuilding(false);
+            setShowRGRBuilding(false);
+            setShowSCSBuilding(false);
+            setShowGYMBuilding(true);
+            setShowSteerHubBuilding(false);
+        }
+        else if (buildingName === 'STEERHUB') {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(false);
+            setShowCITBuilding(false);
+            setShowRGRBuilding(false);
+            setShowSCSBuilding(false);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(true);
+        }
+        else {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(false);
+            setShowCITBuilding(false);
+            setShowRGRBuilding(false);
+            setShowSCSBuilding(false);
+            setShowGYMBuilding(false);
+            setShowSteerHubBuilding(false);
         }
 
     };
@@ -243,6 +318,8 @@ function Container() {
                                 showCITBuilding={showCITBuilding}
                                 showRGRBuilding={showRGRBuilding}
                                 showSCSBuilding={showSCSBuilding}
+                                showGYMBuilding={showGYMBuilding}
+                                showSteerHubBuilding={showSteerHubBuilding}
 
                                 isCampusMap={isCampusMap}
                                 isCEAFABuilding={isCEAFABuilding}
@@ -250,6 +327,8 @@ function Container() {
                                 isCITBuilding={isCITBuilding}
                                 isRGRBuilding={isRGRBuilding}
                                 isSCSBuilding={isSCSBuilding}
+                                isGYMBuilding={isGYMBuilding}
+                                isSteerHubBuilding={isSteerHubBuilding}
                                 handleVideoEnd={handleVideoEnd}
                                 isvideoEnded={isvideoEnded}
                                 
