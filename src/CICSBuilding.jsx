@@ -118,9 +118,10 @@ function CICSBuilding() {
 
             <div className={isFloorPlanVisible ? 'floorPlanContainer' : 'floorPlanContainer-hidden'}>
                 <div className='floorPlanLayout'>
-                    {/* <img src="src/assets/Alangilan-pathway.jpg" alt="dummyphoto" className='floorPlanImage'/> */}
+                    {/* <img src="src/assets/Alangilan-pathway.jpg" alt="dummyphoto" className='floorPlanImage'/>
                     {activeButton === 'Room 101' && <video src="src\assets\ifbread.mp4" autoPlay className='floorPlanImage'></video>}
-                    {activeButton === 'Room 401' && <video src="src\assets\summer.mp4" autoPlay className='floorPlanImage'></video>}
+                    {activeButton === 'Room 401' && <video src="src\assets\summer.mp4" autoPlay className='floorPlanImage'></video>} */}
+                    {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>}
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>
             </div>
@@ -196,7 +197,7 @@ function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
 
 function Floor4 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
     
-    const floor4Rooms = ['Room 401', 'Smart Classroom 1', 'Smart Classroom 2', 'Tecjmocal\'s Room'];
+    const floor4Rooms = ['Room 401', 'Room 402', 'Smart Classroom 1', 'Smart Classroom 2', 'Technical\'s Room'];
 
     return (
         <div className='roomHeader'>
