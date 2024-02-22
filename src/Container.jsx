@@ -80,6 +80,7 @@ function Container() {
     const [isCICSBuilding, setCICSBuilding] = useState();
     const [isCITBuilding, setCITBuilding] = useState();
     const [isRGRBuilding, setRGRBuilding] = useState();
+    const [isSCSBuilding, setSCSBuilding] = useState();
 
     const activateBuildingMap = (buildingName) => {
         if (buildingName === 'CEAFA') {
@@ -88,6 +89,8 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
+            setSCSBuilding(false);
+
         }
         else if (buildingName === 'CICS') {
             setCampusMap(false);
@@ -95,6 +98,7 @@ function Container() {
             setCICSBuilding(true);
             setCITBuilding(false);
             setRGRBuilding(false);
+            setSCSBuilding(false);
         }
         else if (buildingName === 'RGR') {
             setCampusMap(false);
@@ -102,6 +106,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(true);
+            setSCSBuilding(false);
         }
         else if (buildingName === 'CIT') {
             setCampusMap(false);
@@ -109,6 +114,15 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(true);
             setRGRBuilding(false);
+            setSCSBuilding(false);
+        }
+        else if (buildingName === 'STUDENT SERVICES') {
+            setCampusMap(false);
+            setCEAFABuilding(false);
+            setCICSBuilding(false);
+            setCITBuilding(false);
+            setRGRBuilding(false);
+            setSCSBuilding(true);
         }
         else {
             setCampusMap(true);
@@ -129,6 +143,7 @@ function Container() {
     const [showCEAFABuilding, setShowCEAFABuilding] = useState(false);
     const [showCITBuilding, setShowCITBuilding] = useState(false);
     const [showRGRBuilding, setShowRGRBuilding] = useState(false);
+    const [showSCSBuilding, setShowSCSBuilding] = useState(false);
     
     const toggleFloorContainer = (buildingName, index) => {
         
@@ -163,24 +178,35 @@ function Container() {
             setShowCICSBuilding(false);
             setShowCITBuilding(false);
             setShowRGRBuilding(false);
+            setShowSCSBuilding(false);
         }
         else if (buildingName === 'CICS') {
             setShowCEAFABuilding(false);
             setShowCICSBuilding(true);
             setShowCITBuilding(false);
             setShowRGRBuilding(false);
+            setShowSCSBuilding(false);
         }
         else if (buildingName === 'CIT') {
             setShowCEAFABuilding(false);
             setShowCICSBuilding(false);
             setShowCITBuilding(true);
             setShowRGRBuilding(false);
+            setShowSCSBuilding(false);
         }
         else if (buildingName === 'RGR') {
             setShowCEAFABuilding(false);
             setShowCICSBuilding(false);
             setShowCITBuilding(false);
             setShowRGRBuilding(true);
+            setShowSCSBuilding(false);
+        }
+        else if (buildingName === 'STUDENT SERVICES') {
+            setShowCEAFABuilding(false);
+            setShowCICSBuilding(false);
+            setShowCITBuilding(false);
+            setShowRGRBuilding(false);
+            setShowSCSBuilding(true);
         }
 
     };
@@ -216,12 +242,14 @@ function Container() {
                                 showCICSBuilding={showCICSBuilding}
                                 showCITBuilding={showCITBuilding}
                                 showRGRBuilding={showRGRBuilding}
+                                showSCSBuilding={showSCSBuilding}
 
                                 isCampusMap={isCampusMap}
                                 isCEAFABuilding={isCEAFABuilding}
                                 isCICSBuilding={isCICSBuilding}
                                 isCITBuilding={isCITBuilding}
                                 isRGRBuilding={isRGRBuilding}
+                                isSCSBuilding={isSCSBuilding}
                                 handleVideoEnd={handleVideoEnd}
                                 isvideoEnded={isvideoEnded}
                                 

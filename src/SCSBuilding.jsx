@@ -2,7 +2,7 @@ import './BuildingLayout.css'
 
 import React, { useState, useRef } from 'react';
 
-function RGRBuilding() {
+function SCSBuilding() {
 
     const [lastClickedIndex, setLastClickedIndex] = useState(0);
     const [isFloor1Visible, setFloor1Visible] = useState(true);
@@ -75,7 +75,7 @@ function RGRBuilding() {
         setActiveButton(buttonText);
     };
 
-    const RGRFloors = ['Floor 1', 'Floor 2', 'Floor 3'];
+    const SCSFloors = ['Floor 1', 'Floor 2', 'Floor 3'];
 
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
@@ -85,7 +85,7 @@ function RGRBuilding() {
                     <button className={`CICSFloorButtons ${lastClickedIndex === 1 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(1) }}>floor 2</button>
                     <button className={`CICSFloorButtons ${lastClickedIndex === 2 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(2) }}>floor 3</button> */}
                 
-                    {RGRFloors.map((floor, index) => (
+                    {SCSFloors.map((floor, index) => (
                         <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index) }}>{floor} </button>
                     ))}
                 
@@ -112,7 +112,7 @@ function RGRBuilding() {
 
 function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
     
-    floor1Rooms = ['Hydraulics Laboratory', 'Soil Laboratory', 'Environmental Laboratory'];
+    const floor1Rooms = ['Accounting', 'Public Help Desk', 'Budget Office', 'Cashier', 'Commision on Audit Office'];
 
     return (
         <div className='roomHeader'>
@@ -130,7 +130,7 @@ function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
 
 function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
     
-    const floor2Rooms = ['Faculty Room 1', 'RGR 201', 'RGR 202', 'RGR 203', 'Faculty Room 2'];
+    const floor2Rooms = ['Record Office', 'TAO', 'Registrar Office Storeroom', 'Office of the Registrar'];
 
     return (
         <div className='roomHeader'>
@@ -150,7 +150,15 @@ function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
 
 function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
     
-    const floor3Rooms = ['Faculty / Consultation Room', 'RGR 302', 'RGR 303'];
+    const floor3Rooms = ['Office of the Chanchellor for Administration and Finance ', 
+                        'Office of the Vice Chanchellor for Development and External Affairs', 
+                        'Human Resource Management Office', 
+                        'Office of the Vice Chanchellor', 
+                        'Internal Audit Services',
+                        'AXIS', 
+                        'ISO Office',
+                        'Quality Assurance Management Office', 
+                        'Record Management Office'];
 
     return (
         <div className='roomHeader'>
@@ -168,4 +176,4 @@ function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
 
 
 
-export default RGRBuilding
+export default SCSBuilding

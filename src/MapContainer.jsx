@@ -5,10 +5,11 @@ import CICSBuilding from './CICSBuilding';
 import CEAFABuilding from './CEAFABuilding';
 import CITBuilding from './CITBuilding';
 import RGRBuilding from './RGRBuilding';
+import SCSBuilding from './SCSBuilding';
 
 
 
-function MapContainer({showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, handleVideoEnd, isvideoEnded}) {
+function MapContainer({showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, handleVideoEnd, isvideoEnded}) {
 
     // const [backgroundImage, setBackgroundImage] = useState('');
 
@@ -31,11 +32,13 @@ function MapContainer({showFloorContainer, backgroundImage, showCEAFABuilding, s
             {isCICSBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isCITBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isRGRBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
+            {isSCSBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             <div className='buildingSection'>
                 {isvideoEnded && showCEAFABuilding && showFloorContainer && <CEAFABuilding />}
                 {isvideoEnded && showCICSBuilding && showFloorContainer && <CICSBuilding />}
                 {isvideoEnded && showCITBuilding && showFloorContainer && <CITBuilding />}
                 {isvideoEnded && showRGRBuilding && showFloorContainer && <RGRBuilding />}
+                {isvideoEnded && showSCSBuilding && showFloorContainer && <SCSBuilding />}
             </div>
             {/* <img src="src\assets\bsu-alangilan-siteplan.jpg" alt="AlangilanCampus"/> */}
         </div>

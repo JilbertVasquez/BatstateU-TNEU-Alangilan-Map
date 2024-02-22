@@ -40,18 +40,18 @@
     padding: 0;
 }
 
-.floorHeader .CICSFloorButtons {
+.floorHeader .FloorButtons {
     height: 100%;
     width: 100%;
     border: 0px solid black;
 }
 
-.CICSFloorButtons {
+.FloorButtons {
     text-transform: uppercase;
     background-color: rgba(255, 0, 0, 0.5);
 }
 
-.floorHeader .CICSFloorButtons:hover {
+.floorHeader .FloorButtons:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
