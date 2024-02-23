@@ -44,9 +44,19 @@ function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildin
                 floorName: floor.name, 
                 floorIndex: floorIndex, 
                 searchRoom: searchRoom });
-
                 return;
             }
+            // for (const room of upperCaseRooms) {
+            //     if (room.includes(searchRoom)) {
+            //         setBuildingInfo({ 
+            //             buildingName: building.name, 
+            //             buildingIndex: buildingIndex,
+            //             floorName: floor.name, 
+            //             floorIndex: floorIndex, 
+            //             searchRoom: room });
+            //         return;
+            //     }
+            // }
         }
         }
         setBuildingInfo(null);
@@ -58,6 +68,11 @@ function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildin
         handleSearch(offices);
 
     };
+
+    const handleClearSearch = () => {
+        setSearchTerm('');
+        setBuildingInfo(null);
+};
     
 
 return (
@@ -71,8 +86,8 @@ return (
         />
         {buildingInfo ? (
             <div className= "buttonContainer">
-                {console.log(buildingInfo.buildingIndex)}
-                {console.log(lastClickedIndex)}
+                {/* {console.log(buildingInfo.buildingIndex)}
+                {console.log(lastClickedIndex)} */}
                 <button className={`buildingButton ${lastClickedIndex === buildingInfo.buildingIndex ? "" : "toggledButtonSearch"}`} onClick={() => {toggleBackgroundButton(buildingInfo.buildingName, buildingInfo.buildingIndex); toggleFloorContainer(buildingInfo.buildingIndex) }}>{buildingInfo.buildingName}</button>
                 {/* <button>See details...</button> */}
             </div>
@@ -90,6 +105,7 @@ return (
                     
                 </div>
             )}
+            {/* <button onClick={handleClearSearch}>Clear</button> */}
     </div>
     );
 }
