@@ -92,35 +92,48 @@
 }
 
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1280px) {
     .buildingContainer {
-        background-color: blue;
-        height: 18%;
+        background-color: rgba(255, 0, 0, 0.6);
+        height: 20%;
         width: 100%;
     }
 
     #bsulogo {
-        background-color: white;
-        border-radius: 50%;
         width: 8%;
         height: auto;
-        margin-top: 0.5%;
+        margin-top: 1%;
     }
 
-    .buttonContainer  {
+    .buttonContainer {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: 99%;
+        height: 20%;
         justify-content: space-evenly;
-    }
-
-    .buttonContainer  button {
-        font-size: 12px;
-        justify-content: center;
         align-items: center;
-        text-align: center;
-        max-width: 500px;
-        width: 120px;
+        font-size: 18px;
+        }
+
+        .buttonContainer .buttons {
+            width: 100%;
+        }
+
+        .buttons .buildingButton  {
+            font-size: 12px;
+            padding: 5% 0;
+            white-space: nowrap;
+            border: 0px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+
+    #search-id {
+        height: 15%;
+        padding: 1%;
+        width: 99%;
+        margin: 5% auto 0;
+        font-size: 24px;
     }
 
 }

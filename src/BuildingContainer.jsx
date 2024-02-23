@@ -80,7 +80,7 @@ return (
             
             <div className = "buttonContainer">
                     {buildings.map((building, index) => (
-                        <div key={index}>
+                        <div className="buttons" key={index}>
                             <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(building.name, index); activateBuildingMap(building.name); }}>{building.name} </button>
 
                         </div>
