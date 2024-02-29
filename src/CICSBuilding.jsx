@@ -119,9 +119,9 @@ function CICSBuilding() {
             <div className={isFloorPlanVisible ? 'floorPlanContainer' : 'floorPlanContainer-hidden'}>
                 <div className='floorPlanLayout'>
                     {/* <img src="src/assets/Alangilan-pathway.jpg" alt="dummyphoto" className='floorPlanImage'/>
-                    {activeButton === 'Room 101' && <video src="src\assets\ifbread.mp4" autoPlay className='floorPlanImage'></video>}
-                    {activeButton === 'Room 401' && <video src="src\assets\summer.mp4" autoPlay className='floorPlanImage'></video>} */}
-                    {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>}
+                    {activeButton === 'Room 101' && <video src="src\assets\ifbread.mp4" autoPlay className='floorPlanImage'></video>} */}
+                    <div>{activeButton === 'Room 101' && <video src="src\assets\CICS101.mp4" autoPlay className='floorPlanImage zoomed-video'></video>}</div>
+                    {/* {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>} */}
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>
             </div>
