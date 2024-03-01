@@ -114,11 +114,12 @@
     padding-bottom: 0.5%;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
+    border: 3px rgba(255, 0, 0, 0.8) solid;
 }
 
 .floorPlanLayout {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
     width: 98%;
     height: 91%;
     padding: 1%;
