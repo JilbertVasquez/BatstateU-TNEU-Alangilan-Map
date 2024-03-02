@@ -28,8 +28,8 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
         // </div>
 
         // <div className='mapContainer' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
-        <div className='mapContainer' style={{ width: '84%', height: '100%' }}>
-            {isCampusMap && <img id='campusmap' src="src/assets/3dcampusv2.png" style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto' }}></img>}
+        <div className='mapContainer'>
+            {isCampusMap && <img id='campusmap' src="src/assets/3dcampusv2.png"></img>}
             {/* {isCampusMap && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>} */}
             {isCEAFABuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isCICSBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
