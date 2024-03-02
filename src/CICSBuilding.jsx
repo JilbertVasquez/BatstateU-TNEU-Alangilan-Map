@@ -90,11 +90,93 @@ function CICSBuilding() {
     };
 
     const CICSFloors = ['Floor 1', 'Floor 2', 'Floor 3', 'Floor 4', 'Floor 5'];
+    
 
-    const roomVideos = [
-        { name: 'Room 101', videoSrc: 'src/assets/CICS101.mp4' },
-        { name: 'Room 103', videoSrc: 'src/assets/cics103.mp4' },
+    // const roomVideos = [
+    //     { name: 'Room 101',                 videoSrc: 'src/assets/CICSVideos/cics101.mp4' },
+    //     { name: 'Room 102',                 videoSrc: 'src/assets/CICSVideos/cics102.mp4' },
+    //     { name: 'Room 103',                 videoSrc: 'src/assets/CICSVideos/cics103.mp4' },
+    //     { name: 'Room 104',                 videoSrc: 'src/assets/CICSVideos/cics104.mp4' },
+    //     { name: 'Room 105',                 videoSrc: 'src/assets/CICSVideos/cics105.mp4' },
+    //     { name: 'Room 106',                 videoSrc: 'src/assets/CICSVideos/cics106.mp4' },
+    //     { name: 'Room 201',                 videoSrc: 'src/assets/CICSVideos/cics201.mp4' },
+    //     { name: 'Room 202',                 videoSrc: 'src/assets/CICSVideos/cics202.mp4' },
+    //     { name: 'Room 401',                 videoSrc: 'src/assets/CICSVideos/cics401.mp4' },
+    //     { name: 'Room 402',                 videoSrc: 'src/assets/CICSVideos/cics402.mp4' },
+    //     { name: 'Room 501',                 videoSrc: 'src/assets/CICSVideos/cics501.mp4' },
+    //     { name: 'Room 502',                 videoSrc: 'src/assets/CICSVideos/cics502.mp4' },
+    //     { name: 'Room 503',                 videoSrc: 'src/assets/CICSVideos/cics503.mp4' },
+    //     { name: 'Room 504',                 videoSrc: 'src/assets/CICSVideos/cics504.mp4' },
+    //     { name: 'Room 505',                 videoSrc: 'src/assets/CICSVideos/cics505.mp4' },
+    //     { name: 'Room 506',                 videoSrc: 'src/assets/CICSVideos/cics506.mp4' },
+    //     { name: 'Accreditation Room',       videoSrc: 'src/assets/CICSVideos/cics_accreditationroom.mp4' },
+    //     { name: 'CICS Student Services',    videoSrc: 'src/assets/CICSVideos/cics_cicsss.mp4' },
+    //     { name: 'CICSO Laboratory',         videoSrc: 'src/assets/CICSVideos/cics_ciscolab.mp4' },
+    //     { name: 'CICS Consultation Room',   videoSrc: 'src/assets/CICSVideos/cics_consultationroom.mp4' },
+    //     { name: 'CpE Faculty Room',         videoSrc: 'src/assets/CICSVideos/cics_cpefaculty.mp4' },
+    //     { name: 'CpE Laboratory',            videoSrc: 'src/assets/CICSVideos/cics_cpelab.mp4' },
+    //     { name: 'Deans Office',             videoSrc: 'src/assets/CICSVideos/cics_deansoffice.mp4' },
+    //     { name: 'ICS Faculty Room',         videoSrc: 'src/assets/CICSVideos/cics_icsfaculty.mp4' },
+    //     { name: 'ICT Faculty Room',         videoSrc: 'src/assets/CICSVideos/cics_ictfaculty.mp4' },
+    //     { name: 'Infotech Room',            videoSrc: 'src/assets/CICSVideos/cics_infotechroom.mp4' },
+    //     { name: 'Multimedia Laboratory',    videoSrc: 'src/assets/CICSVideos/cics_multimediaroom.mp4' },
+    //     { name: 'Smart Classroom 1',        videoSrc: 'src/assets/CICSVideos/cics_smartclassroom1.mp4' },
+    //     { name: 'Smart Classroom 2',        videoSrc: 'src/assets/CICSVideos/cics_smartclassroom2.mp4' },
+    //     { name: 'Software Laboratory 1',    videoSrc: 'src/assets/CICSVideos/cics_softwarelab1.mp4' },
+    //     { name: 'Software Laboratory 2',    videoSrc: 'src/assets/CICSVideos/cics_softwarelab2.mp4' },
+    //     { name: 'Software Laboratory 3',    videoSrc: 'src/assets/CICSVideos/cics_softwarelab3.mp4' },
+    //     { name: 'Technician Room',          videoSrc: 'src/assets/CICSVideos/cics_technicianroom.mp4' }
+    // ];
+    
+    
+    const floor1Rooms = [
+        { name: 'Room 101', videoSrc: 'src/assets/CICSVideos/cics101.mp4' },
+        { name: 'Room 102', videoSrc: 'src/assets/CICSVideos/cics102.mp4' },
+        { name: 'Room 103', videoSrc: 'src/assets/CICSVideos/cics103.mp4' },
+        { name: 'Room 104', videoSrc: 'src/assets/CICSVideos/cics104.mp4' },
+        { name: 'Room 105', videoSrc: 'src/assets/CICSVideos/cics105.mp4' },
+        { name: 'Room 106', videoSrc: 'src/assets/CICSVideos/cics106.mp4' }
     ];
+    
+    const floor2Rooms = [
+        { name: 'Room 201', videoSrc: 'src/assets/CICSVideos/cics201.mp4' },
+        { name: 'Room 202', videoSrc: 'src/assets/CICSVideos/cics202.mp4' },
+        { name: 'CpE Faculty Room', videoSrc: 'src/assets/CICSVideos/cics_cpefaculty.mp4' },
+        { name: 'CICS Student Services', videoSrc: 'src/assets/CICSVideos/cics_cicsss.mp4' },
+        { name: 'CICS Consultation Room', videoSrc: 'src/assets/CICSVideos/cics_consultationroom.mp4' },
+        { name: 'ICS Faculty Room', videoSrc: 'src/assets/CICSVideos/cics_icsfaculty.mp4' },
+        { name: 'Accreditation Room', videoSrc: 'src/assets/CICSVideos/cics_accreditationroom.mp4' },
+        { name: 'Deans Office', videoSrc: 'src/assets/CICSVideos/cics_deansoffice.mp4' }
+    ];
+    
+    const floor3Rooms = [
+        { name: 'CpE Laboratory', videoSrc: 'src/assets/CICSVideos/cics_cpelab.mp4' },
+        { name: 'CICSO Laboratory', videoSrc: 'src/assets/CICSVideos/cics_ciscolab.mp4' },
+        { name: 'MultiMedia Laboratory', videoSrc: 'src/assets/CICSVideos/cics_multimediaroom.mp4' },
+        { name: 'Software Laboratory 1', videoSrc: 'src/assets/CICSVideos/cics_softwarelab1.mp4' },
+        { name: 'Software Laboratory 2', videoSrc: 'src/assets/CICSVideos/cics_softwarelab2.mp4' },
+        { name: 'Software Laboratory 3', videoSrc: 'src/assets/CICSVideos/cics_softwarelab3.mp4' }
+    ];
+    
+    const floor4Rooms = [
+        { name: 'Room 401', videoSrc: 'src/assets/CICSVideos/cics401.mp4' },
+        { name: 'Room 402', videoSrc: 'src/assets/CICSVideos/cics402.mp4' },
+        { name: 'Smart Classroom 1', videoSrc: 'src/assets/CICSVideos/cics_smartclassroom1.mp4' },
+        { name: 'Smart Classroom 2', videoSrc: 'src/assets/CICSVideos/cics_smartclassroom2.mp4' },
+        { name: 'Technical\'s Room', videoSrc: 'src/assets/CICSVideos/cics_technicianroom.mp4' }
+    ];
+    
+    const floor5Rooms = [
+        { name: 'Room 501', videoSrc: 'src/assets/CICSVideos/cics501.mp4' },
+        { name: 'Room 502', videoSrc: 'src/assets/CICSVideos/cics502.mp4' },
+        { name: 'Room 503', videoSrc: 'src/assets/CICSVideos/cics503.mp4' },
+        { name: 'Room 504', videoSrc: 'src/assets/CICSVideos/cics504.mp4' },
+        { name: 'Room 505', videoSrc: 'src/assets/CICSVideos/cics505.mp4' },
+        { name: 'Room 506', videoSrc: 'src/assets/CICSVideos/cics506.mp4' }
+    ];
+    
+    const floorRooms = [floor1Rooms, floor2Rooms, floor3Rooms, floor4Rooms, floor5Rooms];
+    
 
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
@@ -129,13 +211,33 @@ function CICSBuilding() {
                         {activeButton === 'Room 101' && <video src="src\assets\CICS101.mp4" autoPlay className='floorPlanImage zoomed-video'></video>}
                         {activeButton === 'Room 103' && <video src="src\assets\cics103.mp4" autoPlay className='floorPlanImage zoomed-video'></video>}
                     </div> */}
-                    <div>
-                        {roomVideos.map((room, index) => (
+                    {/* <div>
+                        {floor1Rooms.map((room, index) => (
                             <div key={index}>
                                 {activeButton === room.name && <video src={room.videoSrc} autoPlay className='floorPlanImage zoomed-video'></video>}
                             </div>
                         ))}
                     </div>
+                    <div>
+                        {floor2Rooms.map((room, index) => (
+                            <div key={index}>
+                                {activeButton === room.name && <video src={room.videoSrc} autoPlay className='floorPlanImage zoomed-video'></video>}
+                            </div>
+                        ))}
+                    </div> */}
+
+                    <div>
+                        {floorRooms.map((rooms, floorIndex) => (
+                            <div key={floorIndex}>
+                                {rooms.map((room, roomIndex) => (
+                                    <div key={roomIndex}>
+                                        {activeButton === room.name && <video src={room.videoSrc} autoPlay className='floorPlanImage zoomed-video'></video>}
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                    
                     {/* {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>} */}
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>
@@ -212,7 +314,7 @@ function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
 
 function Floor4 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
     
-    const floor4Rooms = ['Room 401', 'Room 402', 'Smart Classroom 1', 'Smart Classroom 2', 'Technical\'s Room'];
+    const floor4Rooms = ['Room 401', 'Room 402', 'Smart Classroom 1', 'Smart Classroom 2', 'Technician Room'];
 
     return (
         <div className='roomHeader'>
