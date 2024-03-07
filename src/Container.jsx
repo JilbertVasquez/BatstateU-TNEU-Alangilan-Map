@@ -2,9 +2,45 @@ import './Container.css'
 import BuildingContainer from './BuildingContainer';
 import MapContainer from './MapContainer';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Overlay from './Overlay';
 
 function Container() {
+
+    const [showOverlay, setShowOverlay] = useState(true);
+
+  useEffect(() => {
+    let timeoutId;
+
+    const resetTimer = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setShowOverlay(true);
+      }, 30000); // 30 seconds
+    };
+
+    // Reset timer on user activity
+    const handleUserActivity = () => {
+      resetTimer();
+    };
+
+    window.addEventListener('mousemove', handleUserActivity);
+    window.addEventListener('keydown', handleUserActivity);
+
+    // Initial timer start
+    resetTimer();
+
+    // Cleanup
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('mousemove', handleUserActivity);
+      window.removeEventListener('keydown', handleUserActivity);
+    };
+  }, []);
+
+  const handleOverlayClick = () => {
+    setShowOverlay(false);
+  };
 
     // List of Buildings -> Floors -> Rooms
     const buildings = [
@@ -308,7 +344,9 @@ function Container() {
     // };
 
     return(
-        <div className='fullContainer'>
+        <div className='outsideContainer'>
+            <Overlay show={showOverlay} onClick={handleOverlayClick} />
+            <div className='fullContainer'>
             <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} />
             <MapContainer       
             showFloorContainer={showFloorContainer} 
@@ -333,7 +371,10 @@ function Container() {
                                 isvideoEnded={isvideoEnded}
                                 
                                 />
-
+        </div>
+        <div className='footer'>
+            <h2>Batangas State University - The National Engineering University</h2>
+        </div>
         </div>
     );
 }
