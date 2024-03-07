@@ -194,11 +194,11 @@ function CICSBuilding() {
                 
                 </div>
                 <div className='roomHeader'>
-                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor4Visible && <Floor4 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor5Visible && <Floor5 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
+                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={floor1Rooms}/>}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={floor2Rooms}/>}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={floor3Rooms}/>}
+                    {isFloorContainerVisible && isFloor4Visible && <Floor4 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor4Rooms={floor4Rooms}/>}
+                    {isFloorContainerVisible && isFloor5Visible && <Floor5 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor5Rooms={floor5Rooms}/>}
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
@@ -226,7 +226,7 @@ function CICSBuilding() {
                         ))}
                     </div> */}
 
-                    <div>
+
                         {floorRooms.map((rooms, floorIndex) => (
                             <div key={floorIndex}>
                                 {rooms.map((room, roomIndex) => (
@@ -236,7 +236,7 @@ function CICSBuilding() {
                                 ))}
                             </div>
                         ))}
-                    </div>
+                    
                     
                     {/* {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>} */}
                 </div>
@@ -247,9 +247,9 @@ function CICSBuilding() {
 }
 
 
-function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor1Rooms, currentActiveButton}) {
     
-    const floor1Rooms = ['Room 101', 'Room 102', 'Room 103', 'Room 104', 'Room 105', 'Room 106'];
+    // const floor1Rooms = ['Room 101', 'Room 102', 'Room 103', 'Room 104', 'Room 105', 'Room 106'];
 
     return (
         <div className='roomHeader'>
@@ -261,16 +261,16 @@ function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 106');}}>Room 106</button> */}
         
             {floor1Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>
     )
 }
 
-function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor2Rooms, currentActiveButton}) {
     
-    const floor2Rooms = ['Room 201', 'Room 202', 'CpE Faculty Room', 'CICS Student Services', 'CICS Consultation Room', 'ICS Faculty Room', 'Accreditation Room', 'Deans Office'];
+    // const floor2Rooms = ['Room 201', 'Room 202', 'CpE Faculty Room', 'CICS Student Services', 'CICS Consultation Room', 'ICS Faculty Room', 'Accreditation Room', 'Deans Office'];
 
     return (
         <div className='roomHeader'>
@@ -284,16 +284,16 @@ function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Office of the College Dean 2');}}>Office of the College Dean 2</button> */}
         
             {floor2Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>
     )
 }
 
-function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor3Rooms, currentActiveButton}) {
     
-    const floor3Rooms = ['CpE Laboratory', 'CICSO Laboratory', 'MultiMedia Laboratory', 'Software Laboratory 1', 'Software Laboratory 2', 'Software Laboratory 3'];
+    // const floor3Rooms = ['CpE Laboratory', 'CICSO Laboratory', 'MultiMedia Laboratory', 'Software Laboratory 1', 'Software Laboratory 2', 'Software Laboratory 3'];
 
     return (
         <div className='roomHeader'>
@@ -305,16 +305,16 @@ function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Software Laboratory 1');}}>Software Laboratory 3</button> */}
         
             {floor3Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>
     )
 }
 
-function Floor4 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor4 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor4Rooms, currentActiveButton}) {
     
-    const floor4Rooms = ['Room 401', 'Room 402', 'Smart Classroom 1', 'Smart Classroom 2', 'Technician Room'];
+    // const floor4Rooms = ['Room 401', 'Room 402', 'Smart Classroom 1', 'Smart Classroom 2', 'Technician Room'];
 
     return (
         <div className='roomHeader'>
@@ -324,16 +324,16 @@ function Floor4 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Technical\'s Room');}}>Technical's Room</button> */}
         
             {floor4Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>
     )
 }
 
-function Floor5 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor5 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor5Rooms, currentActiveButton}) {
     
-    const floor5Rooms = ['Room 501', 'Room 502', 'Room 503', 'Room 504', 'Room 505', 'Room 506'];
+    // const floor5Rooms = ['Room 501', 'Room 502', 'Room 503', 'Room 504', 'Room 505', 'Room 506'];
 
     return (
         <div className='roomHeader'>
@@ -345,7 +345,7 @@ function Floor5 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 506');}}>Room 506</button>
          */}
             {floor5Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>

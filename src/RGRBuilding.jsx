@@ -77,6 +77,28 @@ function RGRBuilding() {
 
     const RGRFloors = ['Floor 1', 'Floor 2', 'Floor 3'];
 
+    const floor1Rooms = [
+        { name: 'Hydraulics Laboratory',        videoSrc: 'src/assets/RGRVideos/rgr_101hydraulicslab.mp4' },
+        { name: 'Soil Laboratory',              videoSrc: 'src/assets/RGRVideos/rgr_102soillab.mp4' },
+        { name: 'Environmental Laboratory',     videoSrc: 'src/assets/RGRVideos/rgr_103environmentallab.mp4' }
+    ];
+    
+    const floor2Rooms = [
+        { name: 'Faculty Room 1',           videoSrc: 'src/assets/RGRVideos/rgr_204faculty1.mp4' },
+        { name: 'RGR 201',                  videoSrc: 'src/assets/RGRVideos/rgr_201room.mp4' },
+        { name: 'RGR 202',                  videoSrc: 'src/assets/RGRVideos/rgr_202room.mp4' },
+        { name: 'RGR 203',                  videoSrc: 'src/assets/RGRVideos/rgr_203room.mp4' },
+        { name: 'Faculty Room 2',           videoSrc: 'src/assets/RGRVideos/rgr_205faculty2.mp4' }
+    ];
+    
+    const floor3Rooms = [
+        { name: 'Faculty / Consultation Room',      videoSrc: 'src/assets/RGRVideos/rgr_301consultation.mp4' },
+        { name: 'RGR 302',                          videoSrc: 'src/assets/RGRVideos/rgr_302room.mp4' },
+        { name: 'RGR 303',                          videoSrc: 'src/assets/RGRVideos/rgr_303room.mp4' }
+    ];
+
+    const floorRooms = [floor1Rooms, floor2Rooms, floor3Rooms];
+
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
             <div className={isFloorContainerVisible ? 'floorContainer' : 'floorContainer-hidden'}>
@@ -91,9 +113,9 @@ function RGRBuilding() {
                 
                 </div>
                 <div className='roomHeader'>
-                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
+                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={floor1Rooms}/>}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={floor2Rooms}/>}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={floor3Rooms}/>}
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
@@ -101,7 +123,18 @@ function RGRBuilding() {
             <div className={isFloorPlanVisible ? 'floorPlanContainer' : 'floorPlanContainer-hidden'}>
                 <div className='floorPlanLayout'>
                     {/* <img src="src/assets/Alangilan-pathway.jpg" alt="dummyphoto" className='floorPlanImage'/> */}
-                    {activeButton === 'Room 401' && <video src="src\assets\summer.mp4" autoPlay className='floorPlanImage'></video>}
+                    {/* {activeButton === 'Room 401' && <video src="src\assets\summer.mp4" autoPlay className='floorPlanImage'></video>} */}
+                
+                    {floorRooms.map((rooms, floorIndex) => (
+                            <div key={floorIndex}>
+                                {rooms.map((room, roomIndex) => (
+                                    <div key={roomIndex}>
+                                        {activeButton === room.name && <video src={room.videoSrc} autoPlay className='floorPlanImage zoomed-video'></video>}
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>
             </div>
@@ -110,9 +143,9 @@ function RGRBuilding() {
 }
 
 
-function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor1Rooms, currentActiveButton}) {
     
-    floor1Rooms = ['Hydraulics Laboratory', 'Soil Laboratory', 'Environmental Laboratory'];
+    // const floor1Rooms = ['Hydraulics Laboratory', 'Soil Laboratory', 'Environmental Laboratory'];
 
     return (
         <div className='roomHeader'>
@@ -121,16 +154,16 @@ function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 103');}}>Environmental Laboratory</button> */}
         
             {floor1Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>
     )
 }
 
-function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor2Rooms, currentActiveButton}) {
     
-    const floor2Rooms = ['Faculty Room 1', 'RGR 201', 'RGR 202', 'RGR 203', 'Faculty Room 2'];
+    // const floor2Rooms = ['Faculty Room 1', 'RGR 201', 'RGR 202', 'RGR 203', 'Faculty Room 2'];
 
     return (
         <div className='roomHeader'>
@@ -141,16 +174,16 @@ function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CICS Student Services 1');}}>Faculty Room 2</button> */}
         
             {floor2Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
         
         </div>
     )
 }
 
-function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
+function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, floor3Rooms, currentActiveButton}) {
     
-    const floor3Rooms = ['Faculty / Consultation Room', 'RGR 302', 'RGR 303'];
+    // const floor3Rooms = ['Faculty / Consultation Room', 'RGR 302', 'RGR 303'];
 
     return (
         <div className='roomHeader'>
@@ -159,7 +192,7 @@ function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, cur
             <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CpE Faculty Room');}}>RGR 303</button> */}
        
             {floor3Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
+                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room.name) }}>{room.name} </button>
                 ))}
        
         </div>
