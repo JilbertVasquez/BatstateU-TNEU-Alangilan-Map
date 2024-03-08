@@ -12,7 +12,7 @@ body {
     align-items: center;
 
     /* background-color: rgba(255, 255, 255, 0.5); */
-    height: 85vh;
+    height: 88vh;
     width: 95vw;
     padding: 0.5%;
     margin: 0;
@@ -21,7 +21,7 @@ body {
 .outsideContainer {
     display: flex;
     flex-direction: column;
-    height: 92vh;
+    height: 95vh;
     width: 96vw;
     background-color: rgba(255, 255, 255, 0.5);
     background-color: rgba(0, 0, 0, 0.6);
@@ -46,7 +46,7 @@ body {
 @media only screen and (max-width: 1280px) {
     .fullContainer {
         flex-direction: column;
-        height: 92vh;
+        height: 89vh;
     }
     .outsideContainer {
         height: 92vh;
@@ -64,6 +64,6 @@ body {
     
     .footer h2 {
         /* font-size: 30px; */
-        margin: 0 0 1%;
+        margin: 0 0 0.2%;
     }
 }

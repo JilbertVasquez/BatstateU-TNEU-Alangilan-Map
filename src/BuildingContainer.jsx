@@ -1,6 +1,56 @@
 import './BuildingContainer.css'
-
+import * as buildings from './BuildingInfo';
 import React, { useState } from 'react';
+// Define the list of buildings and their corresponding floors
+const buildingList = [
+    { name: 'CEAFA', floors: [buildings.floor1Rooms_CEAFA, buildings.floor2Rooms_CEAFA, buildings.floor3Rooms_CEAFA, buildings.floor4Rooms_CEAFA] },
+    { name: 'CICS', floors: [buildings.floor1Rooms_CICS, buildings.floor2Rooms_CICS, buildings.floor3Rooms_CICS, buildings.floor4Rooms_CICS, buildings.floor5Rooms_CICS] },
+    { name: 'CIT', floors: [buildings.LowerGround_CIT, buildings.floor1Rooms_CIT, buildings.floor2Rooms_CIT, buildings.floor3Rooms_CIT, buildings.floor4Rooms_CIT, buildings.floor5Rooms_CIT] },
+    { name: 'GYM', floors: [buildings.floor1Rooms_GYM, buildings.floor2Rooms_GYM, buildings.floor3Rooms_GYM] },
+    { name: 'RGR', floors: [buildings.floor1Rooms_RGR, buildings.floor2Rooms_RGR, buildings.floor3Rooms_RGR] },
+    { name: 'SSC', floors: [buildings.floor1Rooms_SSC, buildings.floor2Rooms_SSC, buildings.floor3Rooms_SSC] }
+];
+
+// Function to search for a room in all buildings and floors
+const searchRoom = (keyword) => {
+    if (!keyword.trim()) {
+        return [];
+    }
+
+    const results = [];
+
+    buildingList.forEach((building) => {
+        const buildingName = building.name;
+        const buildingFloors = building.floors;
+
+        buildingFloors.forEach((floor, index) => {
+            floor.forEach((room) => {
+                // Check if the room name starts with the search keyword
+                if (room.toLowerCase().startsWith(keyword.toLowerCase())) {
+                    results.push({ room: room, building: buildingName, floor: `Floor ${index + 1}` });
+                }
+            });
+        });
+    });
+
+    return results;
+};
+
+// Define a component to display search results
+const SearchResults = ({ results, lastClickedIndex, toggleBackgroundButton }) => {
+    return (
+        <div className="search-results">
+            {results.map((result, index) => (
+                // <li key={index}>
+                //     <strong>Building:</strong> {result.building}, <strong>Floor:</strong> {result.floor}, <strong>Room:</strong> {result.room}
+                // </li>
+                <button key={index} className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`}  onClick={() => {toggleBackgroundButton(index);}} >
+                    {result.room}
+                </button>
+            ))}
+        </div>
+    );
+};
 
 function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildingMap}) {
 
@@ -17,7 +67,11 @@ function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildin
         else {
             setLastClickedIndex(index);
         }
-        
+    }
+
+    function backToNone() {
+    
+        setLastClickedIndex(null);
     }
 
     // return(
@@ -28,68 +82,25 @@ function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildin
     // );
 
     // useState for Search Function
-    const [searchTerm, setSearchTerm] = useState('');
-    const [buildingInfo, setBuildingInfo] = useState(null);
+    const [keyword, setKeyword] = useState('');
 
-    const handleSearch = (searchRoom) => {
-        searchRoom = searchRoom.toUpperCase();
-        for (const [buildingIndex, building] of buildings.entries()) {
-        for (const [floorIndex, floor] of building.floors.entries()) {
-            const upperCaseRooms = floor.rooms.map(room => room.toUpperCase());
-            
-            if (upperCaseRooms.includes(searchRoom)) {
-            setBuildingInfo({ 
-                buildingName: building.name, 
-                buildingIndex: buildingIndex,
-                floorName: floor.name, 
-                floorIndex: floorIndex, 
-                searchRoom: searchRoom });
-                return;
-            }
-            // for (const room of upperCaseRooms) {
-            //     if (room.includes(searchRoom)) {
-            //         setBuildingInfo({ 
-            //             buildingName: building.name, 
-            //             buildingIndex: buildingIndex,
-            //             floorName: floor.name, 
-            //             floorIndex: floorIndex, 
-            //             searchRoom: room });
-            //         return;
-            //     }
-            // }
-        }
-        }
-        setBuildingInfo(null);
+    // Handle input change
+    const handleInputChange = (event) => {
+        setKeyword(event.target.value);
     };
 
-    const handleChange = (e) => {
-        const offices = e.target.value.toLowerCase();
-        setSearchTerm(offices);
-        handleSearch(offices);
-
-    };
-
-    const handleClearSearch = () => {
-        setSearchTerm('');
-        setBuildingInfo(null);
-};
+    // Call searchRoom function with the keyword
+    const searchResults = searchRoom(keyword);
     
 
 return (
     <div className='buildingContainer'>
         <img id = "bsulogo" src="src\assets\batstateu-tneu-logo.png" alt="bsu-tneu-logo" />
-        <input id = 'search-id'
-            type="search"
-            placeholder="search office here..."
-            value={searchTerm}
-            onChange={handleChange}
-        />
-        {buildingInfo ? (
-            <div className= "buttonContainer">
-                {/* {console.log(buildingInfo.buildingIndex)}
-                {console.log(lastClickedIndex)} */}
-                <button className={`buildingButton ${lastClickedIndex === buildingInfo.buildingIndex ? "" : "toggledButtonSearch"}`} onClick={() => {toggleBackgroundButton(buildingInfo.buildingName, buildingInfo.buildingIndex); toggleFloorContainer(buildingInfo.buildingIndex) }}>{buildingInfo.buildingName}</button>
-                {/* <button>See details...</button> */}
+        {/* <input id='search-id' type="search" value={keyword} onChange={handleInputChange} placeholder="search office here..." /> */}
+        <input id='search-id' type="search" value={keyword} onChange={(event) => { handleInputChange(event); backToNone(); }} placeholder="search office here..." />
+        {searchResults.length > 0 ? (
+            <div className= 'buttonContainer'>
+                {keyword.trim() && <SearchResults results={searchResults} lastClickedIndex={lastClickedIndex} toggleBackgroundButton={toggleBackgroundButton} />}
             </div>
             ) : (
             
@@ -97,7 +108,6 @@ return (
                     {buildings.map((building, index) => (
                         <div className="buttons" key={index}>
                             <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(building.name, index); activateBuildingMap(building.name); }}>{building.name} </button>
-
                         </div>
                     ))}
 
