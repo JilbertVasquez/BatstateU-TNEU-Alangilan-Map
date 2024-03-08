@@ -104,6 +104,14 @@ export const floor4Rooms_CIT = ['Room 401', 'Room 402', 'Room 403', 'Room 404', 
 
 export const floor5Rooms_CIT = ['Room 501', 'Room 502', 'Room 503', 'Room 504', 'Room 505'];
 
+// RGR Building
+
+export const floor1Rooms_RGR = ['Hydraulics Laboratory', 'Soil Laboratory', 'Environmental Laboratory'];
+
+export const floor2Rooms_RGR = ['Faculty Room 1', 'RGR 201', 'RGR 202', 'RGR 203', 'Faculty Room 2'];
+
+export const floor3Rooms_RGR = ['Faculty / Consultation Room', 'RGR 302', 'RGR 303'];
+
 // GYM Building
 
 export const floor1Rooms_GYM = [
@@ -124,14 +132,6 @@ export const floor1Rooms_GYM = [
 export const floor2Rooms_GYM = ['NSTP Office', 'Control Room', 'OJT Office', 'Student Discipline', 'ICT Office'];
 
 export const floor3Rooms_GYM = ['Dance Studio', 'Fitness Gym'];
-
-// RGR Building
-
-export const floor1Rooms_RGR = ['Hydraulics Laboratory', 'Soil Laboratory', 'Environmental Laboratory'];
-
-export const floor2Rooms_RGR = ['Faculty Room 1', 'RGR 201', 'RGR 202', 'RGR 203', 'Faculty Room 2'];
-
-export const floor3Rooms_RGR = ['Faculty / Consultation Room', 'RGR 302', 'RGR 303'];
 
 // SSC Building
 

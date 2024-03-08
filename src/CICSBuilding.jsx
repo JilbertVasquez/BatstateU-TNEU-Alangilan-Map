@@ -89,6 +89,12 @@ function CICSBuilding() {
         setActiveButton(buttonText);
     };
 
+    const [activeFloor, setActiveFloor] = useState('Floor 1');
+
+    const currentActiveFloor = (floor) => {
+        setActiveFloor(floor);
+    };
+
     const CICSFloors = ['Floor 1', 'Floor 2', 'Floor 3', 'Floor 4', 'Floor 5'];
     
 
@@ -189,7 +195,7 @@ function CICSBuilding() {
                     <button className={`FloorButtons ${lastClickedIndex === 4 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(4) }}>floor 5</button> */}
                     
                     {CICSFloors.map((floor, index) => (
-                            <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index) }}>{floor} </button>
+                            <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index); currentActiveFloor(floor) }}>{floor} </button>
                         ))}
                 
                 </div>
@@ -231,12 +237,13 @@ function CICSBuilding() {
                             <div key={floorIndex}>
                                 {rooms.map((room, roomIndex) => (
                                     <div key={roomIndex}>
+                                        {/* <h1>{CICSFloors[floorIndex]}</h1> */}
                                         {activeButton === room.name && <video src={room.videoSrc} autoPlay className='floorPlanImage zoomed-video'></video>}
                                     </div>
                                 ))}
                             </div>
                         ))}
-                    
+                    <h1>{activeFloor}</h1>
                     
                     {/* {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>} */}
                 </div>

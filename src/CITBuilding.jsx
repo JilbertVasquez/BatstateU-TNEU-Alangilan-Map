@@ -110,7 +110,7 @@ function CITBuilding() {
         { name: 'Faculty', videoSrc: 'src/assets/CITVideos/cit_001faculty.mp4' },
         { name: 'Mechanical Technology', videoSrc: 'src/assets/CITVideos/cit_002mechanicaltechnology.mp4' },
         { name: 'Mechanical And Automotive Shop', videoSrc: 'src/assets/CITVideos/cit_003mechanicalandautomationshop.mp4' },
-        { name: 'Dean Extension', videoSrc: 'src/assets/CITVideos/cit_004deanextension.mp4' }
+        { name: 'Deans Extension', videoSrc: 'src/assets/CITVideos/cit_004deanextension.mp4' }
     ];
     
     const floor1Rooms = [

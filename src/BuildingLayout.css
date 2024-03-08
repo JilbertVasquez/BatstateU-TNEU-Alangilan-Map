@@ -121,6 +121,7 @@
     justify-content: center;
     background-color: rgba(255, 255, 255, 1);
     border: 3px rgba(255, 0, 0, 0.8) solid;
+    border: 3px rgb(167, 24, 29) solid;
 }
 
 .floorPlanLayout {
@@ -132,9 +133,22 @@
     max-height: 100%;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.floorPlanLayout h1 {
+    position: absolute;
+    top: 8%;
+    left: 10%;
+    /* right: 90%; */
+    margin: 0;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    color: black;
+    z-index: 1;
+    font-size: 22px;
 }
 
 /* .floorPlanLayout .floorPlanImage {
@@ -148,11 +162,11 @@
     height: 110%;
     margin-left: -5%; */
     object-fit: cover;
-    
     width: 90%;
-    height: auto;
+    height: 100%;
     transform: scale(1.2);
 }
+
 
 @media only screen and (max-width: 1280px) {
     .floorSection {

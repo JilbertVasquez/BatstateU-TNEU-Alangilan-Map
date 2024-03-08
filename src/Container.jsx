@@ -16,7 +16,7 @@ function Container() {
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => {
         setShowOverlay(true);
-      }, 30000); // 30 seconds
+      }, 60000); // 60 seconds
     };
 
     // Reset timer on user activity
@@ -331,6 +331,29 @@ function Container() {
         setShowFloorContainer(true);
     };
 
+
+    const [showSearchFloorContainer, setShowSearchFloorContainer] = useState(false);
+    const [showSearchFloorContainerIndex, setShowSearchFloorContainerIndex] = useState();
+
+    const toggleSearchFloorContainer = (index) => {
+        if (showSearchFloorContainerIndex === index) {
+            setShowSearchFloorContainerIndex(null);
+            setShowSearchFloorContainer(false);
+        }
+        else {
+            setShowSearchFloorContainerIndex(index);
+            setShowSearchFloorContainer(true);
+        }
+        
+    }
+
+    let searchRoomInfo = [];
+    const updateRoomInfo = (roomInfo) => {
+        searchRoomInfo = [];
+        searchRoomInfo.push({room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor});
+        console.log(searchRoomInfo[0]);
+    }
+
     
 
     const closeFloorContainer = () => {
@@ -347,7 +370,7 @@ function Container() {
         <div className='outsideContainer'>
             <Overlay show={showOverlay} onClick={handleOverlayClick} />
             <div className='fullContainer'>
-            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} />
+            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} />
             <MapContainer       
             showFloorContainer={showFloorContainer} 
                                 backgroundImage={backgroundImage} 
@@ -370,6 +393,8 @@ function Container() {
                                 handleVideoEnd={handleVideoEnd}
                                 isvideoEnded={isvideoEnded}
                                 
+                                showSearchFloorContainer={showSearchFloorContainer}
+                                searchRoomInfo={searchRoomInfo}
                                 />
         </div>
         <div className='footer'>
