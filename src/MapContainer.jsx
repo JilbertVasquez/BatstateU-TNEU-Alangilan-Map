@@ -49,7 +49,7 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
                 {isvideoEnded && showGYMBuilding && showFloorContainer && <GYMBuilding />}
                 {isvideoEnded && showSteerHubBuilding && showFloorContainer && <SteerHubBuilding />}
 
-                {showSearchFloorContainer && <SearchRoom searchRoomInfo ={searchRoomInfo} />}
+                {isvideoEnded && showSearchFloorContainer && <SearchRoom searchRoomInfo ={searchRoomInfo} />}
 
             </div>
             {/* <img src="src\assets\bsu-alangilan-siteplan.jpg" alt="AlangilanCampus"/> */}

@@ -336,6 +336,7 @@ function Container() {
     const [showSearchFloorContainerIndex, setShowSearchFloorContainerIndex] = useState();
 
     const toggleSearchFloorContainer = (index) => {
+        setShowFloorContainer(false);
         if (showSearchFloorContainerIndex === index) {
             setShowSearchFloorContainerIndex(null);
             setShowSearchFloorContainer(false);
@@ -352,6 +353,11 @@ function Container() {
         searchRoomInfo = [];
         searchRoomInfo.push({room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor});
         console.log(searchRoomInfo[0]);
+        if(searchRoomInfo[0].building === 'CICS') {
+            setCampusMap(false);
+            setCICSBuilding(true);
+            console.log("HELLO WORLD");
+        }
     }
 
     
