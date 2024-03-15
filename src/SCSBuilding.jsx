@@ -1,4 +1,5 @@
 import './BuildingLayout.css'
+import * as SSCRooms from './SSCInfo';
 
 import React, { useState, useRef } from 'react';
 
@@ -75,34 +76,40 @@ function SCSBuilding() {
         setActiveButton(buttonText);
     };
 
+    const [activeFloor, setActiveFloor] = useState('Floor 1');
+
+    const currentActiveFloor = (floor) => {
+        setActiveFloor(floor);
+    };
+
     const SCSFloors = ['Floor 1', 'Floor 2', 'Floor 3'];
 
-    const floor1Rooms = [
-        { name: 'Accounting',                       videoSrc: 'src/assets/SSCVideos/ssc_101accounting.mp4' },
-        { name: 'Budget Office',                    videoSrc: 'src/assets/SSCVideos/ssc_102budget.mp4' },
-        { name: 'Cashier',                          videoSrc: 'src/assets/SSCVideos/ssc_103cashier.mp4' },
-        { name: 'Commission on Audit Office',       videoSrc: 'src/assets/SSCVideos/ssc_104commissiononauditoffice.mp4' }
-    ];
+    // const floor1Rooms = [
+    //     { name: 'Accounting',                       videoSrc: 'src/assets/SSCVideos/ssc_101accounting.mp4' },
+    //     { name: 'Budget Office',                    videoSrc: 'src/assets/SSCVideos/ssc_102budget.mp4' },
+    //     { name: 'Cashier',                          videoSrc: 'src/assets/SSCVideos/ssc_103cashier.mp4' },
+    //     { name: 'Commission on Audit Office',       videoSrc: 'src/assets/SSCVideos/ssc_104commissiononauditoffice.mp4' }
+    // ];
     
-    const floor2Rooms = [
-        { name: 'Record Office',                    videoSrc: 'src/assets/SSCVideos/ssc_201recordoffice.mp4' },
-        { name: 'TAO',                              videoSrc: 'src/assets/SSCVideos/ssc_202testingadmissionoffice.mp4' },
-        { name: 'Registrar Office Storeroom',       videoSrc: 'src/assets/SSCVideos/ssc_203registrarstoreroom.mp4' },
-        { name: 'Office of the Registrar',          videoSrc: 'src/assets/SSCVideos/ssc_204officeoftheregistrar.mp4' }
-    ];
+    // const floor2Rooms = [
+    //     { name: 'Record Office',                    videoSrc: 'src/assets/SSCVideos/ssc_201recordoffice.mp4' },
+    //     { name: 'TAO',                              videoSrc: 'src/assets/SSCVideos/ssc_202testingadmissionoffice.mp4' },
+    //     { name: 'Registrar Office Storeroom',       videoSrc: 'src/assets/SSCVideos/ssc_203registrarstoreroom.mp4' },
+    //     { name: 'Office of the Registrar',          videoSrc: 'src/assets/SSCVideos/ssc_204officeoftheregistrar.mp4' }
+    // ];
     
-    const floor3Rooms = [
-        { name: 'Office of the Chancellor for Administration and Finance',              videoSrc: 'src/assets/SSCVideos/ssc_301admin.mp4' },
-        { name: 'Office of the Vice Chancellor for Development and External Affairs',   videoSrc: 'src/assets/SSCVideos/ssc_301deployment.mp4' },
-        { name: 'Human Resource Management Office',                                     videoSrc: 'src/assets/SSCVideos/ssc_301humanresources.mp4' },
-        { name: 'Office of the Vice Chancellor',                                        videoSrc: 'src/assets/SSCVideos/ssc_302internalauditservices.mp4' },
-        { name: 'AXIS',                                                                 videoSrc: 'src/assets/SSCVideos/ssc_303axis.mp4' },
-        { name: 'ISO Office',                                                           videoSrc: 'src/assets/SSCVideos/ssc_304isoqaoffice.mp4' },
-        { name: 'Quality Assurance Management Office',                                  videoSrc: 'src/assets/SSCVideos/ssc_304recordmanagementoffice.mp4' },
-        { name: 'Record Management Office',                                             videoSrc: 'src/assets/SSCVideos/ssc_305officeofthechancellor.mp4' }
-    ];
+    // const floor3Rooms = [
+    //     { name: 'Office of the Chancellor for Administration and Finance',              videoSrc: 'src/assets/SSCVideos/ssc_301admin.mp4' },
+    //     { name: 'Office of the Vice Chancellor for Development and External Affairs',   videoSrc: 'src/assets/SSCVideos/ssc_301deployment.mp4' },
+    //     { name: 'Human Resource Management Office',                                     videoSrc: 'src/assets/SSCVideos/ssc_301humanresources.mp4' },
+    //     { name: 'Office of the Vice Chancellor',                                        videoSrc: 'src/assets/SSCVideos/ssc_302internalauditservices.mp4' },
+    //     { name: 'AXIS',                                                                 videoSrc: 'src/assets/SSCVideos/ssc_303axis.mp4' },
+    //     { name: 'ISO Office',                                                           videoSrc: 'src/assets/SSCVideos/ssc_304isoqaoffice.mp4' },
+    //     { name: 'Quality Assurance Management Office',                                  videoSrc: 'src/assets/SSCVideos/ssc_304recordmanagementoffice.mp4' },
+    //     { name: 'Record Management Office',                                             videoSrc: 'src/assets/SSCVideos/ssc_305officeofthechancellor.mp4' }
+    // ];
 
-    const floorRooms = [floor1Rooms, floor2Rooms, floor3Rooms];
+    const floorRooms = [SSCRooms.floor1Rooms, SSCRooms.floor2Rooms, SSCRooms.floor3Rooms];
 
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
@@ -113,14 +120,14 @@ function SCSBuilding() {
                     <button className={`CICSFloorButtons ${lastClickedIndex === 2 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(2) }}>floor 3</button> */}
                 
                     {SCSFloors.map((floor, index) => (
-                        <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index) }}>{floor} </button>
+                        <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index); currentActiveFloor(floor) }}>{floor} </button>
                     ))}
                 
                 </div>
                 <div className='roomHeader'>
-                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={floor1Rooms}/>}
-                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={floor2Rooms}/>}
-                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={floor3Rooms}/>}
+                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={SSCRooms.floor1Rooms}/>}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={SSCRooms.floor2Rooms}/>}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={SSCRooms.floor3Rooms}/>}
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
@@ -140,7 +147,7 @@ function SCSBuilding() {
                                 ))}
                             </div>
                         ))}
-                    
+                    <h1>{activeFloor}</h1>
                 
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>

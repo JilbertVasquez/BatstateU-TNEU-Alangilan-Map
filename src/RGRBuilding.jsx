@@ -1,4 +1,5 @@
 import './BuildingLayout.css'
+import * as RGRRooms from './RGRInfo';
 
 import React, { useState, useRef } from 'react';
 
@@ -75,29 +76,35 @@ function RGRBuilding() {
         setActiveButton(buttonText);
     };
 
+    const [activeFloor, setActiveFloor] = useState('Floor 1');
+
+    const currentActiveFloor = (floor) => {
+        setActiveFloor(floor);
+    };
+
     const RGRFloors = ['Floor 1', 'Floor 2', 'Floor 3'];
 
-    const floor1Rooms = [
-        { name: 'Hydraulics Laboratory',        videoSrc: 'src/assets/RGRVideos/rgr_101hydraulicslab.mp4' },
-        { name: 'Soil Laboratory',              videoSrc: 'src/assets/RGRVideos/rgr_102soillab.mp4' },
-        { name: 'Environmental Laboratory',     videoSrc: 'src/assets/RGRVideos/rgr_103environmentallab.mp4' }
-    ];
+    // const floor1Rooms = [
+    //     { name: 'Hydraulics Laboratory',        videoSrc: 'src/assets/RGRVideos/rgr_101hydraulicslab.mp4' },
+    //     { name: 'Soil Laboratory',              videoSrc: 'src/assets/RGRVideos/rgr_102soillab.mp4' },
+    //     { name: 'Environmental Laboratory',     videoSrc: 'src/assets/RGRVideos/rgr_103environmentallab.mp4' }
+    // ];
     
-    const floor2Rooms = [
-        { name: 'Faculty Room 1',           videoSrc: 'src/assets/RGRVideos/rgr_204faculty1.mp4' },
-        { name: 'RGR 201',                  videoSrc: 'src/assets/RGRVideos/rgr_201room.mp4' },
-        { name: 'RGR 202',                  videoSrc: 'src/assets/RGRVideos/rgr_202room.mp4' },
-        { name: 'RGR 203',                  videoSrc: 'src/assets/RGRVideos/rgr_203room.mp4' },
-        { name: 'Faculty Room 2',           videoSrc: 'src/assets/RGRVideos/rgr_205faculty2.mp4' }
-    ];
+    // const floor2Rooms = [
+    //     { name: 'Faculty Room 1',           videoSrc: 'src/assets/RGRVideos/rgr_204faculty1.mp4' },
+    //     { name: 'RGR 201',                  videoSrc: 'src/assets/RGRVideos/rgr_201room.mp4' },
+    //     { name: 'RGR 202',                  videoSrc: 'src/assets/RGRVideos/rgr_202room.mp4' },
+    //     { name: 'RGR 203',                  videoSrc: 'src/assets/RGRVideos/rgr_203room.mp4' },
+    //     { name: 'Faculty Room 2',           videoSrc: 'src/assets/RGRVideos/rgr_205faculty2.mp4' }
+    // ];
     
-    const floor3Rooms = [
-        { name: 'Faculty / Consultation Room',      videoSrc: 'src/assets/RGRVideos/rgr_301consultation.mp4' },
-        { name: 'RGR 302',                          videoSrc: 'src/assets/RGRVideos/rgr_302room.mp4' },
-        { name: 'RGR 303',                          videoSrc: 'src/assets/RGRVideos/rgr_303room.mp4' }
-    ];
+    // const floor3Rooms = [
+    //     { name: 'Faculty / Consultation Room',      videoSrc: 'src/assets/RGRVideos/rgr_301consultation.mp4' },
+    //     { name: 'RGR 302',                          videoSrc: 'src/assets/RGRVideos/rgr_302room.mp4' },
+    //     { name: 'RGR 303',                          videoSrc: 'src/assets/RGRVideos/rgr_303room.mp4' }
+    // ];
 
-    const floorRooms = [floor1Rooms, floor2Rooms, floor3Rooms];
+    const floorRooms = [RGRRooms.floor1Rooms, RGRRooms.floor2Rooms, RGRRooms.floor3Rooms];
 
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
@@ -108,14 +115,14 @@ function RGRBuilding() {
                     <button className={`CICSFloorButtons ${lastClickedIndex === 2 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(2) }}>floor 3</button> */}
                 
                     {RGRFloors.map((floor, index) => (
-                        <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index) }}>{floor} </button>
+                        <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index); currentActiveFloor(floor) }}>{floor} </button>
                     ))}
                 
                 </div>
                 <div className='roomHeader'>
-                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={floor1Rooms}/>}
-                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={floor2Rooms}/>}
-                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={floor3Rooms}/>}
+                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={RGRRooms.floor1Rooms}/>}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={RGRRooms.floor2Rooms}/>}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={RGRRooms.floor3Rooms}/>}
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
@@ -134,6 +141,7 @@ function RGRBuilding() {
                                 ))}
                             </div>
                         ))}
+                    <h1>{activeFloor}</h1>
                 
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>

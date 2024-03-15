@@ -1,4 +1,5 @@
 import './BuildingLayout.css'
+import * as CITRooms from './CITInfo';
 
 import React, { useState, useRef } from 'react';
 
@@ -104,61 +105,67 @@ function CITBuilding() {
         setActiveButton(buttonText);
     };
 
+    const [activeFloor, setActiveFloor] = useState('Floor 1');
+
+    const currentActiveFloor = (floor) => {
+        setActiveFloor(floor);
+    };
+
     const CITFloors = ['Lower Ground', 'Floor 1', 'Floor 2', 'Floor 3', 'Floor 4', 'Floor 5'];
 
-    const lowerGround = [
-        { name: 'Faculty', videoSrc: 'src/assets/CITVideos/cit_001faculty.mp4' },
-        { name: 'Mechanical Technology', videoSrc: 'src/assets/CITVideos/cit_002mechanicaltechnology.mp4' },
-        { name: 'Mechanical And Automotive Shop', videoSrc: 'src/assets/CITVideos/cit_003mechanicalandautomationshop.mp4' },
-        { name: 'Deans Extension', videoSrc: 'src/assets/CITVideos/cit_004deanextension.mp4' }
-    ];
+    // const lowerGround = [
+    //     { name: 'Faculty', videoSrc: 'src/assets/CITVideos/cit_001faculty.mp4' },
+    //     { name: 'Mechanical Technology', videoSrc: 'src/assets/CITVideos/cit_002mechanicaltechnology.mp4' },
+    //     { name: 'Mechanical And Automotive Shop', videoSrc: 'src/assets/CITVideos/cit_003mechanicalandautomationshop.mp4' },
+    //     { name: 'Deans Extension', videoSrc: 'src/assets/CITVideos/cit_004deanextension.mp4' }
+    // ];
     
-    const floor1Rooms = [
-        { name: 'Electronic Shop', videoSrc: 'src/assets/CITVideos/cit_101electronicshop.mp4' },
-        { name: 'Electronic Technology Shop', videoSrc: 'src/assets/CITVideos/cit_102electronictechnologyshop.mp4' },
-        { name: 'Instrumentation And Control', videoSrc: 'src/assets/CITVideos/cit_103instrumentationandcontrol.mp4' },
-        { name: 'Physics Lab', videoSrc: 'src/assets/CITVideos/cit_104physicslab.mp4' },
-        { name: 'Food Tech', videoSrc: 'src/assets/CITVideos/cit_105foodtech.mp4' },
-        { name: 'Scholarship And Financial Assistance Office / Accreditation Room', videoSrc: 'src/assets/CITVideos/cit_106accreditation.mp4' }
-    ];
+    // const floor1Rooms = [
+    //     { name: 'Electronic Shop', videoSrc: 'src/assets/CITVideos/cit_101electronicshop.mp4' },
+    //     { name: 'Electronic Technology Shop', videoSrc: 'src/assets/CITVideos/cit_102electronictechnologyshop.mp4' },
+    //     { name: 'Instrumentation And Control', videoSrc: 'src/assets/CITVideos/cit_103instrumentationandcontrol.mp4' },
+    //     { name: 'Physics Lab', videoSrc: 'src/assets/CITVideos/cit_104physicslab.mp4' },
+    //     { name: 'Food Tech', videoSrc: 'src/assets/CITVideos/cit_105foodtech.mp4' },
+    //     { name: 'Scholarship And Financial Assistance Office / Accreditation Room', videoSrc: 'src/assets/CITVideos/cit_106accreditation.mp4' }
+    // ];
     
-    const floor2Rooms = [
-        { name: 'Deans Office', videoSrc: 'src/assets/CITVideos/cit_201deansoffice.mp4' },
-        { name: 'Faculty 1', videoSrc: 'src/assets/CITVideos/cit_202faclty1.mp4' },
-        { name: 'Faculty 2', videoSrc: 'src/assets/CITVideos/cit_203faclty2.mp4' },
-        { name: 'Multi-Media Room 1', videoSrc: 'src/assets/CITVideos/cit_204multimediaroom1.mp4' },
-        { name: 'Multi-Media Room 2', videoSrc: 'src/assets/CITVideos/cit_205multimediaroom2.mp4' },
-        { name: 'Extension Services', videoSrc: 'src/assets/CITVideos/cit_206gadextension.mp4' }
-    ];
+    // const floor2Rooms = [
+    //     { name: 'Deans Office', videoSrc: 'src/assets/CITVideos/cit_201deansoffice.mp4' },
+    //     { name: 'Faculty 1', videoSrc: 'src/assets/CITVideos/cit_202faclty1.mp4' },
+    //     { name: 'Faculty 2', videoSrc: 'src/assets/CITVideos/cit_203faclty2.mp4' },
+    //     { name: 'Multi-Media Room 1', videoSrc: 'src/assets/CITVideos/cit_204multimediaroom1.mp4' },
+    //     { name: 'Multi-Media Room 2', videoSrc: 'src/assets/CITVideos/cit_205multimediaroom2.mp4' },
+    //     { name: 'Extension Services', videoSrc: 'src/assets/CITVideos/cit_206gadextension.mp4' }
+    // ];
     
-    const floor3Rooms = [
-        { name: 'Computer Lab 1', videoSrc: 'src/assets/CITVideos/cit_301computerlab1.mp4' },
-        { name: 'Computer Lab 2', videoSrc: 'src/assets/CITVideos/cit_302computerlab2.mp4' },
-        { name: 'Computer Lab 3', videoSrc: 'src/assets/CITVideos/cit_303computerlab3.mp4' },
-        { name: 'ELDC', videoSrc: 'src/assets/CITVideos/cit_304eldc.mp4' },
-        { name: 'Smart Classroom', videoSrc: 'src/assets/CITVideos/cit_305smartclassroom.mp4' },
-        { name: 'Research Office', videoSrc: 'src/assets/CITVideos/cit_306researchoffice.mp4' }
-    ];
+    // const floor3Rooms = [
+    //     { name: 'Computer Lab 1', videoSrc: 'src/assets/CITVideos/cit_301computerlab1.mp4' },
+    //     { name: 'Computer Lab 2', videoSrc: 'src/assets/CITVideos/cit_302computerlab2.mp4' },
+    //     { name: 'Computer Lab 3', videoSrc: 'src/assets/CITVideos/cit_303computerlab3.mp4' },
+    //     { name: 'ELDC', videoSrc: 'src/assets/CITVideos/cit_304eldc.mp4' },
+    //     { name: 'Smart Classroom', videoSrc: 'src/assets/CITVideos/cit_305smartclassroom.mp4' },
+    //     { name: 'Research Office', videoSrc: 'src/assets/CITVideos/cit_306researchoffice.mp4' }
+    // ];
     
-    const floor4Rooms = [
-        { name: 'Room 401', videoSrc: 'src/assets/CITVideos/cit_401room.mp4' },
-        { name: 'Room 402', videoSrc: 'src/assets/CITVideos/cit_402room.mp4' },
-        { name: 'Room 403', videoSrc: 'src/assets/CITVideos/cit_403room.mp4' },
-        { name: 'Room 404', videoSrc: 'src/assets/CITVideos/cit_404room.mp4' },
-        { name: 'Room 405', videoSrc: 'src/assets/CITVideos/cit_405room.mp4' },
-        { name: 'OSAS', videoSrc: 'src/assets/CITVideos/cit_406osas.mp4' }
-    ];
+    // const floor4Rooms = [
+    //     { name: 'Room 401', videoSrc: 'src/assets/CITVideos/cit_401room.mp4' },
+    //     { name: 'Room 402', videoSrc: 'src/assets/CITVideos/cit_402room.mp4' },
+    //     { name: 'Room 403', videoSrc: 'src/assets/CITVideos/cit_403room.mp4' },
+    //     { name: 'Room 404', videoSrc: 'src/assets/CITVideos/cit_404room.mp4' },
+    //     { name: 'Room 405', videoSrc: 'src/assets/CITVideos/cit_405room.mp4' },
+    //     { name: 'OSAS', videoSrc: 'src/assets/CITVideos/cit_406osas.mp4' }
+    // ];
     
-    const floor5Rooms = [
-        { name: 'Room 501', videoSrc: 'src/assets/CITVideos/cit_501room.mp4' },
-        { name: 'Room 502', videoSrc: 'src/assets/CITVideos/cit_502room.mp4' },
-        { name: 'Room 503', videoSrc: 'src/assets/CITVideos/cit_503room.mp4' },
-        { name: 'Room 504', videoSrc: 'src/assets/CITVideos/cit_504room.mp4' },
-        { name: 'Room 505', videoSrc: 'src/assets/CITVideos/cit_505room.mp4' },
-        // { name: 'Room 506', videoSrc: 'src/assets/CITVideos/cit_506.mp4' }
-    ];
+    // const floor5Rooms = [
+    //     { name: 'Room 501', videoSrc: 'src/assets/CITVideos/cit_501room.mp4' },
+    //     { name: 'Room 502', videoSrc: 'src/assets/CITVideos/cit_502room.mp4' },
+    //     { name: 'Room 503', videoSrc: 'src/assets/CITVideos/cit_503room.mp4' },
+    //     { name: 'Room 504', videoSrc: 'src/assets/CITVideos/cit_504room.mp4' },
+    //     { name: 'Room 505', videoSrc: 'src/assets/CITVideos/cit_505room.mp4' },
+    //     // { name: 'Room 506', videoSrc: 'src/assets/CITVideos/cit_506.mp4' }
+    // ];
 
-    const floorRooms = [lowerGround, floor1Rooms, floor2Rooms, floor3Rooms, floor4Rooms, floor5Rooms];
+    const floorRooms = [CITRooms.lowerGround, CITRooms.floor1Rooms, CITRooms.floor2Rooms, CITRooms.floor3Rooms, CITRooms.floor4Rooms, CITRooms.floor5Rooms];
 
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
@@ -172,17 +179,17 @@ function CITBuilding() {
                     <button className={`FloorButtons ${lastClickedIndex === 5 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(5) }}>floor 5</button> */}
                 
                     {CITFloors.map((floor, index) => (
-                        <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index) }}>{floor} </button>
+                        <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index); currentActiveFloor(floor) }}>{floor} </button>
                     ))}
                 
                 </div>
                 <div className='roomHeader'> 
-                    {isFloorContainerVisible && isLowerGroundVisible && <LowerGround toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} lowerGround={lowerGround}/>}
-                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={floor1Rooms}/>}
-                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={floor2Rooms}/>}
-                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={floor3Rooms}/>}
-                    {isFloorContainerVisible && isFloor4Visible && <Floor4 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor4Rooms={floor4Rooms}/>}
-                    {isFloorContainerVisible && isFloor5Visible && <Floor5 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor5Rooms={floor5Rooms}/>}
+                    {isFloorContainerVisible && isLowerGroundVisible && <LowerGround toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} lowerGround={CITRooms.lowerGround}/>}
+                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor1Rooms={CITRooms.floor1Rooms}/>}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor2Rooms={CITRooms.floor2Rooms}/>}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor3Rooms={CITRooms.floor3Rooms}/>}
+                    {isFloorContainerVisible && isFloor4Visible && <Floor4 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor4Rooms={CITRooms.floor4Rooms}/>}
+                    {isFloorContainerVisible && isFloor5Visible && <Floor5 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton} floor5Rooms={CITRooms.floor5Rooms}/>}
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
@@ -202,6 +209,7 @@ function CITBuilding() {
                             ))}
                         </div>
                     ))}
+                    <h1>{activeFloor}</h1>
                 
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>
