@@ -345,21 +345,27 @@ function Container() {
             setShowSearchFloorContainerIndex(index);
             setShowSearchFloorContainer(true);
         }
-        
     }
 
-    let searchRoomInfo = [];
+    const hideSearchFloor= () => {
+        showSearchFloorContainer(false);
+    }
+
+    const [searchRoomInfo, setSearchRoomInfo] = useState([]);
+
     const updateRoomInfo = (roomInfo) => {
-        searchRoomInfo = [];
-        searchRoomInfo.push({room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor});
+        setShowFloorContainer(false);
+        setSearchRoomInfo([]);
+        setSearchRoomInfo([{ room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor }]);
         console.log(searchRoomInfo[0]);
-        if(searchRoomInfo[0].building === 'CICS') {
-            setCampusMap(false);
-            setCICSBuilding(true);
+        if(roomInfo.building === 'CICS') {
             console.log("HELLO WORLD");
+            
         }
     }
 
+
+    
     
 
     const closeFloorContainer = () => {
@@ -376,7 +382,7 @@ function Container() {
         <div className='outsideContainer'>
             <Overlay show={showOverlay} onClick={handleOverlayClick} />
             <div className='fullContainer'>
-            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} />
+            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideSearchFloor={hideSearchFloor} />
             <MapContainer       
             showFloorContainer={showFloorContainer} 
                                 backgroundImage={backgroundImage} 

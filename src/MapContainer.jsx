@@ -35,7 +35,7 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
             {/* {isCampusMap && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>} */}
             {isCEAFABuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isCICSBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isCITBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
+            {isCITBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isRGRBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isSCSBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
             {isGYMBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}

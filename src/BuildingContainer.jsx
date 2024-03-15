@@ -53,7 +53,7 @@ const SearchResults = ({ results, lastClickedIndex, toggleBackgroundButton, togg
     );
 };
 
-function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildingMap, toggleSearchFloorContainer, updateRoomInfo}) {
+function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildingMap, toggleSearchFloorContainer, updateRoomInfo, hideSearchFloor}) {
 
     const buildings = buildingList;
 
@@ -113,7 +113,7 @@ return (
             <div className = "buttonContainer">
                     {buildings.map((building, index) => (
                         <div className="buttons" key={index}>
-                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(building.name, index); activateBuildingMap(building.name); }}>{building.name} </button>
+                            <button className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`} onClick={() => {toggleBackgroundButton(index); toggleFloorContainer(building.name, index); activateBuildingMap(building.name); hideSearchFloor(); }}>{building.name} </button>
                         </div>
                     ))}
 
