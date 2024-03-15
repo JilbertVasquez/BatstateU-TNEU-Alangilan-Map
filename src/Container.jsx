@@ -379,11 +379,13 @@ function Container() {
     const [isCICSBuilding2, setCICSBuilding2] = useState(false);
     const [isCITBuilding2, setCITBuilding2] = useState(false);
     const [isRGRBuilding2, setRGRBuilding2] = useState(false);
+    const [isSSCBuilding2, setSSCBuilding2] = useState(false);
 
 
     const [searchRoomInfo, setSearchRoomInfo] = useState([]);
 
     const updateRoomInfo = (roomInfo) => {
+        setShowSearchFloorContainer(false);
         setShowFloorContainer(false);
         setSearchRoomInfo([]);
         setSearchRoomInfo([{ room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor }]);
@@ -393,12 +395,28 @@ function Container() {
             setCICSBuilding2(true);
             setCITBuilding2(false);
             setRGRBuilding2(false);
+            setSSCBuilding2(false);
         }
         else if(roomInfo.building === 'CIT') {
             console.log("HELLO asdasdsad");
             setCICSBuilding2(false);
             setCITBuilding2(true);
             setRGRBuilding2(false);
+            setSSCBuilding2(false);
+        }
+        else if(roomInfo.building === 'RGR') {
+            console.log("HELLO asdasdsad");
+            setCICSBuilding2(false);
+            setCITBuilding2(false);
+            setRGRBuilding2(true);
+            setSSCBuilding2(false);
+        }
+        else if(roomInfo.building === 'SSC') {
+            console.log("HELLO asdasdsad");
+            setCICSBuilding2(false);
+            setCITBuilding2(false);
+            setRGRBuilding2(false);
+            setSSCBuilding2(true);
         }
     }
 
@@ -449,6 +467,7 @@ function Container() {
                                 isCICSBuilding2={isCICSBuilding2}
                                 isCITBuilding2={isCITBuilding2}
                                 isRGRBuilding2={isRGRBuilding2}
+                                isSSCBuilding2={isSSCBuilding2}
                                 handleVideoEnd2={handleVideoEnd2}
                                 isvideoEnded2={isvideoEnded2}
                                 />

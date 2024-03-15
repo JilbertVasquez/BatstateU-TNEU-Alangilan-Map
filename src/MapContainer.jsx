@@ -13,7 +13,7 @@ import SearchRoom from './SearchRoom';
 
 
 
-function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, showGYMBuilding, showSteerHubBuilding,  isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, isGYMBuilding, isSteerHubBuilding, handleVideoEnd, isvideoEnded,  showSearchFloorContainer, searchRoomInfo ,isCICSBuilding2, isCITBuilding2, isRGRBuilding2, handleVideoEnd2, isvideoEnded2}) {
+function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, showGYMBuilding, showSteerHubBuilding,  isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, isGYMBuilding, isSteerHubBuilding, handleVideoEnd, isvideoEnded,  showSearchFloorContainer, searchRoomInfo ,isCICSBuilding2, isCITBuilding2, isRGRBuilding2, isSSCBuilding2, handleVideoEnd2, isvideoEnded2}) {
 
     // const [backgroundImage, setBackgroundImage] = useState('');
 
@@ -43,8 +43,9 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
 
 
             {isCICSBuilding2 && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
-            {isCITBuilding2 && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
+            {isCITBuilding2 && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isRGRBuilding2 && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
+            {isSSCBuilding2 && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
 
 
             <div className='buildingSection'>
