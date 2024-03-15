@@ -37,14 +37,14 @@ const searchRoom = (keyword) => {
 };
 
 // Define a component to display search results
-const SearchResults = ({ results, lastClickedIndex, toggleBackgroundButton, toggleSearchFloorContainer, updateRoomInfo }) => {
+const SearchResults = ({ results, lastClickedIndex, toggleBackgroundButton, toggleSearchFloorContainer, updateRoomInfo, hideDefaultFloor }) => {
     return (
         <div className="search-results">
             {results.map((result, index) => (
                 // <li key={index}>
                 //     <strong>Building:</strong> {result.building}, <strong>Floor:</strong> {result.floor}, <strong>Room:</strong> {result.room}
                 // </li>
-                <button key={index} className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`}  onClick={() => {toggleBackgroundButton(index); toggleSearchFloorContainer(index); updateRoomInfo(result); }} >
+                <button key={index} className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`}  onClick={() => {toggleBackgroundButton(index); toggleSearchFloorContainer(index); updateRoomInfo(result); hideDefaultFloor(); }} >
                     {result.room}
                 </button>
                         
@@ -53,7 +53,7 @@ const SearchResults = ({ results, lastClickedIndex, toggleBackgroundButton, togg
     );
 };
 
-function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildingMap, toggleSearchFloorContainer, updateRoomInfo, hideSearchFloor}) {
+function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildingMap, toggleSearchFloorContainer, updateRoomInfo, hideSearchFloor, hideDefaultFloor}) {
 
     const buildings = buildingList;
 
@@ -101,7 +101,7 @@ return (
         <input id='search-id' type="search" value={keyword} onChange={(event) => { handleInputChange(event); backToNone(); }} placeholder="search office here..." />
         {searchResults.length > 0 ? (
             <div className= 'buttonContainer'>
-                {keyword.trim() && <SearchResults results={searchResults} lastClickedIndex={lastClickedIndex} toggleBackgroundButton={toggleBackgroundButton} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} />}
+                {keyword.trim() && <SearchResults results={searchResults} lastClickedIndex={lastClickedIndex} toggleBackgroundButton={toggleBackgroundButton} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideDefaultFloor={hideDefaultFloor} />}
                 {/* {
                     searchResults.forEach(element => {
                         console.log(element.floor);

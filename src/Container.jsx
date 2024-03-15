@@ -311,6 +311,7 @@ function Container() {
             setShowSteerHubBuilding(true);
         }
         else {
+            setCampusMap(false);
             setShowCEAFABuilding(false);
             setShowCICSBuilding(false);
             setShowCITBuilding(false);
@@ -332,6 +333,14 @@ function Container() {
     };
 
 
+    const [isvideoEnded2, setVideoEnded2] = useState(false);
+
+    const handleVideoEnd2 = () => {
+        setVideoEnded2(true);
+        setShowSearchFloorContainer(true);
+    };
+
+
     const [showSearchFloorContainer, setShowSearchFloorContainer] = useState(false);
     const [showSearchFloorContainerIndex, setShowSearchFloorContainerIndex] = useState();
 
@@ -347,9 +356,30 @@ function Container() {
         }
     }
 
-    const hideSearchFloor= () => {
-        showSearchFloorContainer(false);
+    const hideDefaultFloor= () => {
+        setShowFloorContainer(false);
+
+        setCampusMap(false);
+        setCICSBuilding(false);
+        setCITBuilding(false);
+        setRGRBuilding(false);
+
     }
+
+    const hideSearchFloor= () => {
+        setShowSearchFloorContainer(false);
+
+        setCampusMap(false);
+        setCICSBuilding2(false);
+        setCITBuilding2(false);
+        setRGRBuilding2(false);
+    }
+
+
+    const [isCICSBuilding2, setCICSBuilding2] = useState(false);
+    const [isCITBuilding2, setCITBuilding2] = useState(false);
+    const [isRGRBuilding2, setRGRBuilding2] = useState(false);
+
 
     const [searchRoomInfo, setSearchRoomInfo] = useState([]);
 
@@ -359,8 +389,16 @@ function Container() {
         setSearchRoomInfo([{ room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor }]);
         console.log(searchRoomInfo[0]);
         if(roomInfo.building === 'CICS') {
-            console.log("HELLO WORLD");
-            
+            console.log("HELLO WORssssssssLD");
+            setCICSBuilding2(true);
+            setCITBuilding2(false);
+            setRGRBuilding2(false);
+        }
+        else if(roomInfo.building === 'CIT') {
+            console.log("HELLO asdasdsad");
+            setCICSBuilding2(false);
+            setCITBuilding2(true);
+            setRGRBuilding2(false);
         }
     }
 
@@ -382,7 +420,7 @@ function Container() {
         <div className='outsideContainer'>
             <Overlay show={showOverlay} onClick={handleOverlayClick} />
             <div className='fullContainer'>
-            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideSearchFloor={hideSearchFloor} />
+            <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideSearchFloor={hideSearchFloor} hideDefaultFloor={hideDefaultFloor} />
             <MapContainer       
             showFloorContainer={showFloorContainer} 
                                 backgroundImage={backgroundImage} 
@@ -407,6 +445,12 @@ function Container() {
                                 
                                 showSearchFloorContainer={showSearchFloorContainer}
                                 searchRoomInfo={searchRoomInfo}
+
+                                isCICSBuilding2={isCICSBuilding2}
+                                isCITBuilding2={isCITBuilding2}
+                                isRGRBuilding2={isRGRBuilding2}
+                                handleVideoEnd2={handleVideoEnd2}
+                                isvideoEnded2={isvideoEnded2}
                                 />
         </div>
         <div className='footer'>
