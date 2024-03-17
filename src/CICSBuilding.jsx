@@ -243,7 +243,7 @@ function CICSBuilding() {
                                 ))}
                             </div>
                         ))}
-                    <h1>{activeFloor}</h1>
+                    <h1>CICS - {activeFloor}</h1>
                     
                     {/* {activeButton === 'Room 101' && <img src="src\assets\CICS-Floor1.jpg" autoPlay className='floorPlanImage'/>} */}
                 </div>

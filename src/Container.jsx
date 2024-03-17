@@ -343,8 +343,10 @@ function Container() {
 
     const [showSearchFloorContainer, setShowSearchFloorContainer] = useState(false);
     const [showSearchFloorContainerIndex, setShowSearchFloorContainerIndex] = useState();
+    const [lastSearchBuilding, setLastSearchBuilding] = useState();
+    const [lastSearchRoom, setLastSearchRoom] = useState();
 
-    const toggleSearchFloorContainer = (index) => {
+    const toggleSearchFloorContainer = (index, searchInfo) => {
         setShowFloorContainer(false);
         if (showSearchFloorContainerIndex === index) {
             setShowSearchFloorContainerIndex(null);
@@ -354,6 +356,20 @@ function Container() {
             setShowSearchFloorContainerIndex(index);
             setShowSearchFloorContainer(true);
         }
+
+        if (lastSearchBuilding === searchInfo.building) {
+            setShowSearchFloorContainer(true);
+            console.log("JIL");
+        }
+        else {
+            setShowSearchFloorContainer(false);
+        }
+        if (lastSearchRoom === searchInfo.room) {
+            setShowSearchFloorContainer(!showSearchFloorContainerIndex);
+            console.log("ASDAD");
+        }
+        
+
     }
 
     const hideDefaultFloor= () => {
@@ -385,7 +401,11 @@ function Container() {
     const [searchRoomInfo, setSearchRoomInfo] = useState([]);
 
     const updateRoomInfo = (roomInfo) => {
-        setShowSearchFloorContainer(false);
+        setLastSearchBuilding(roomInfo.building);
+        setLastSearchRoom(roomInfo.room);
+        // dsetShowSearchFloorContainer(false);
+
+
         setShowFloorContainer(false);
         setSearchRoomInfo([]);
         setSearchRoomInfo([{ room: roomInfo.room, building: roomInfo.building, floor: roomInfo.floor }]);

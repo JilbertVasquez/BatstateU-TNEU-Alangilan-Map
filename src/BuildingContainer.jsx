@@ -44,7 +44,7 @@ const SearchResults = ({ results, lastClickedIndex, toggleBackgroundButton, togg
                 // <li key={index}>
                 //     <strong>Building:</strong> {result.building}, <strong>Floor:</strong> {result.floor}, <strong>Room:</strong> {result.room}
                 // </li>
-                <button key={index} className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`}  onClick={() => {toggleBackgroundButton(index); toggleSearchFloorContainer(index); updateRoomInfo(result); hideDefaultFloor(); }} >
+                <button key={index} className={`buildingButton ${lastClickedIndex === index ? "toggled" : ""}`}  onClick={() => {toggleBackgroundButton(index); toggleSearchFloorContainer(index, result); updateRoomInfo(result); hideDefaultFloor(); }} >
                     {result.room}
                 </button>
                         

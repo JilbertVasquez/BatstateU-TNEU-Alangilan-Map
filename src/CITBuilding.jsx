@@ -209,7 +209,7 @@ function CITBuilding() {
                             ))}
                         </div>
                     ))}
-                    <h1>{activeFloor}</h1>
+                    <h1>CIT - {activeFloor}</h1>
                 
                 </div>
                 <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>

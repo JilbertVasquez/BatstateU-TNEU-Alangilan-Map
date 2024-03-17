@@ -83,7 +83,7 @@ function SearchRoom({ searchRoomInfo }) {
                     ))}
                 </div>}
 
-                <h1>{searchRoomInfo[0].floor}</h1>
+                <h1>{searchRoomInfo[0].building} - {searchRoomInfo[0].floor}</h1>
                 {/* <img src="src\assets\3dcampusv2.jpg" alt="campusmap" /> */}
             </div>
             <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>CLOSE</button>
