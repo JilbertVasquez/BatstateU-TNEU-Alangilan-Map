@@ -16,18 +16,17 @@ let searchSTEERHUBCVideoPH;
 
 export { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMVideoPH, defaultRGRVideoPH, defaultSSCVideoPH, defaultSTEERHUBCVideoPH };
 
-// export { searchCEAFAVideoPH, searchCICSVideoPH, searchCITVideoPH, searchGYMVideoPH, searchRGRVideoPH, searchSSCVideoPH, searchSTEERHUBCVideoPH };
-
+export { searchCEAFAVideoPH, searchCICSVideoPH, searchCITVideoPH, searchGYMVideoPH, searchRGRVideoPH, searchSSCVideoPH, searchSTEERHUBCVideoPH };
 
 const PathHandler = (buildingName) => {
     if (buildingName === 'GATE') {
-        defaultCICSVideoPH = "src/assets/campus/gate/gatetocics.mp4";
-        defaultCEAFAVideoPH = "src/assets/campus/gate/gatetoceafa.mp4";
-        defaultCITVideoPH = "src/assets/campus/gate/gatetocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/gate/gatetogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/gate/gatetorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/gate/gatetossc.mp4";
-        defaultSTEERHUBCVideoPH = "src/assets/campus/gate/gatetosteerhub.mp4";
+        defaultCICSVideoPH = searchCEAFAVideoPH = "src/assets/campus/gate/gatetocics.mp4";
+        defaultCEAFAVideoPH = searchCICSVideoPH = "src/assets/campus/gate/gatetoceafa.mp4";
+        defaultCITVideoPH = searchCITVideoPH = "src/assets/campus/gate/gatetocit.mp4";
+        defaultGYMVideoPH = searchGYMVideoPH = "src/assets/campus/gate/gatetogym.mp4";
+        defaultRGRVideoPH = searchRGRVideoPH = "src/assets/campus/gate/gatetorgr.mp4";
+        defaultSSCVideoPH = searchSSCVideoPH = "src/assets/campus/gate/gatetossc.mp4";
+        defaultSTEERHUBCVideoPH = searchSTEERHUBCVideoPH = "src/assets/campus/gate/gatetosteerhub.mp4";
     } 
     else if (buildingName === 'CICS') {
         defaultCEAFAVideoPH = "src/assets/campus/cics/cicstoceafa.mp4";
@@ -88,3 +87,4 @@ const PathHandler = (buildingName) => {
 }
 
 export default PathHandler;
+
