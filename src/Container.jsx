@@ -487,6 +487,17 @@ function Container() {
 
 
     
+    const [selectedKiosk, setSelectedKiosk] = useState();
+    const [showKiosk, setShowKiosk] = useState(true);
+
+    const selectCurrentKiosk = (buildingName) => {
+        setSelectedKiosk(buildingName);
+        setShowKiosk(false);
+        console.log("SELECTED KIOSK" + buildingName);
+    }
+
+
+    
     
 
     const closeFloorContainer = () => {
@@ -502,7 +513,7 @@ function Container() {
     return(
         <div className='outsideContainer'>
             <Overlay show={showOverlay} onClick={handleOverlayClick} />
-            {/* <Kiosk /> */}
+            <Kiosk selectCurrentKiosk={selectCurrentKiosk} showKiosk={showKiosk} />
             <div className='fullContainer'>
             <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideSearchFloor={hideSearchFloor} hideDefaultFloor={hideDefaultFloor} />
             <MapContainer       

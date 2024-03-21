@@ -19,6 +19,11 @@
     flex-direction: column;
   }
 
+  .kioskContainer.notshow {
+    opacity: 0;
+    visibility: hidden;
+    }
+
 .kioskContainer .kioskBuildingList {
     text-align: center;
     /* background-color: red; */
