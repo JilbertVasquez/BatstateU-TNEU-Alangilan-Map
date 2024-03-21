@@ -4,6 +4,7 @@ import MapContainer from './MapContainer';
 
 import React, { useState, useEffect } from 'react';
 import Overlay from './Overlay';
+import Kiosk from './Kiosk';
 
 function Container() {
 
@@ -467,6 +468,7 @@ function Container() {
     return(
         <div className='outsideContainer'>
             <Overlay show={showOverlay} onClick={handleOverlayClick} />
+            <Kiosk />
             <div className='fullContainer'>
             <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideSearchFloor={hideSearchFloor} hideDefaultFloor={hideDefaultFloor} />
             <MapContainer       

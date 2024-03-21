@@ -1,5 +1,5 @@
 import React from 'react';
-import './Overlay.css'; // Import CSS for styling
+import './Overlay.css';
 
 const Overlay = ({ show, onClick }) => {
   return (
