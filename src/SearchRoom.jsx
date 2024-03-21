@@ -3,6 +3,8 @@ import * as CICSRooms from './CICSInfo';
 import * as CITRooms from './CITInfo';
 import * as RGRRooms from './RGRInfo';
 import * as SSCRooms from './SSCInfo';
+import * as CEAFARooms from './CEAFAInfo';
+import * as GYMRooms from './GYMInfo';
 
 import React, { useState, useRef } from 'react';
 
@@ -22,7 +24,7 @@ function SearchRoom({ searchRoomInfo }) {
 
     
 
-    // const [showActiveBuilding, setActiveBuilding] = useState();
+    const [showActiveBuilding, setActiveBuilding] = useState();
 
     const checkBuilding = (buildingName) => {
         if (buildingName === 'CICS') {
@@ -40,14 +42,18 @@ function SearchRoom({ searchRoomInfo }) {
         CICS: CICSRooms,
         CIT: CITRooms,
         RGR: RGRRooms,
-        SSC: SSCRooms
+        SSC: SSCRooms,
+        CEAFA: CEAFARooms,
+        GYM: GYMRooms
     };
     
     const floorRoomsByBuilding = {
         CICS: [CICSRooms.floor1Rooms, CICSRooms.floor2Rooms, CICSRooms.floor3Rooms, CICSRooms.floor4Rooms, CICSRooms.floor5Rooms],
-        CIT: [CITRooms.floor1Rooms, CITRooms.floor2Rooms, CITRooms.floor3Rooms, CITRooms.floor4Rooms, CITRooms.floor5Rooms],
+        CIT: [CITRooms.lowerGround, CITRooms.floor1Rooms, CITRooms.floor2Rooms, CITRooms.floor3Rooms, CITRooms.floor4Rooms, CITRooms.floor5Rooms],
         RGR: [RGRRooms.floor1Rooms, RGRRooms.floor2Rooms, RGRRooms.floor3Rooms],
-        SSC: [SSCRooms.floor1Rooms, SSCRooms.floor2Rooms, SSCRooms.floor3Rooms]
+        SSC: [SSCRooms.floor1Rooms, SSCRooms.floor2Rooms, SSCRooms.floor3Rooms],
+        CEAFA: [CEAFARooms.floor1Rooms, CEAFARooms.floor2Rooms, CEAFARooms.floor3Rooms, CEAFARooms.floor4Rooms],
+        GYM: [GYMRooms.floor1Rooms, GYMRooms.floor2Rooms, GYMRooms.floor3Rooms]
     };
 
     return(
@@ -67,10 +73,11 @@ function SearchRoom({ searchRoomInfo }) {
                             </div>
                         ))} */}
                 
-                {<div>
-                    {Object.keys(floorRoomsMap).map((buildingName, index) => (
-                        <div key={index}>
-                            {floorRoomsByBuilding[buildingName].map((rooms, floorIndex) => (
+
+                    <div>
+
+                        
+                            {floorRoomsByBuilding[searchRoomInfo[0].building].map((rooms, floorIndex) => (
                                 <div key={floorIndex}>
                                     {rooms.map((room, roomIndex) => (
                                         <div key={roomIndex}>
@@ -79,9 +86,9 @@ function SearchRoom({ searchRoomInfo }) {
                                     ))}
                                 </div>
                             ))}
-                        </div>
-                    ))}
-                </div>}
+                        
+
+                </div>
 
                 <h1>{searchRoomInfo[0].building} - {searchRoomInfo[0].floor}</h1>
                 {/* <img src="src\assets\3dcampusv2.jpg" alt="campusmap" /> */}

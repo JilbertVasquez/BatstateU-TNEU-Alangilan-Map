@@ -390,6 +390,8 @@ function Container() {
         setCICSBuilding(false);
         setCITBuilding(false);
         setRGRBuilding(false);
+        setCEAFABuilding(false);
+        setGYMBuilding(false);
 
     }
 
@@ -400,6 +402,8 @@ function Container() {
         setCICSBuilding2(false);
         setCITBuilding2(false);
         setRGRBuilding2(false);
+        setCEAFABuilding2(false);
+        setGYMBuilding2(false);
     }
 
 
@@ -407,6 +411,10 @@ function Container() {
     const [isCITBuilding2, setCITBuilding2] = useState(false);
     const [isRGRBuilding2, setRGRBuilding2] = useState(false);
     const [isSSCBuilding2, setSSCBuilding2] = useState(false);
+
+    const [isCEAFABuilding2, setCEAFABuilding2] = useState(false);
+    const [isGYMBuilding2, setGYMBuilding2] = useState(false);
+    // const [isSTEERHUBBuilding2, setSTEERHUBBuilding2] = useState(false);
 
 
     const [searchRoomInfo, setSearchRoomInfo] = useState([]);
@@ -427,6 +435,8 @@ function Container() {
             setCITBuilding2(false);
             setRGRBuilding2(false);
             setSSCBuilding2(false);
+            setCEAFABuilding2(false);
+            setGYMBuilding2(false);
         }
         else if(roomInfo.building === 'CIT') {
             console.log("HELLO asdasdsad");
@@ -434,6 +444,8 @@ function Container() {
             setCITBuilding2(true);
             setRGRBuilding2(false);
             setSSCBuilding2(false);
+            setCEAFABuilding2(false);
+            setGYMBuilding2(false);
         }
         else if(roomInfo.building === 'RGR') {
             console.log("HELLO asdasdsad");
@@ -441,6 +453,8 @@ function Container() {
             setCITBuilding2(false);
             setRGRBuilding2(true);
             setSSCBuilding2(false);
+            setCEAFABuilding2(false);
+            setGYMBuilding2(false);
         }
         else if(roomInfo.building === 'SSC') {
             console.log("HELLO asdasdsad");
@@ -448,6 +462,26 @@ function Container() {
             setCITBuilding2(false);
             setRGRBuilding2(false);
             setSSCBuilding2(true);
+            setCEAFABuilding2(false);
+            setGYMBuilding2(false);
+        }
+        else if(roomInfo.building === 'CEAFA') {
+            console.log("HELLO asdasdsad");
+            setCICSBuilding2(false);
+            setCITBuilding2(false);
+            setRGRBuilding2(false);
+            setSSCBuilding2(false);
+            setCEAFABuilding2(true);
+            setGYMBuilding2(false);
+        }
+        else if(roomInfo.building === 'GYM') {
+            console.log("HELLO asdasdsad");
+            setCICSBuilding2(false);
+            setCITBuilding2(false);
+            setRGRBuilding2(false);
+            setSSCBuilding2(false);
+            setCEAFABuilding2(false);
+            setGYMBuilding2(true);
         }
     }
 
@@ -468,7 +502,7 @@ function Container() {
     return(
         <div className='outsideContainer'>
             <Overlay show={showOverlay} onClick={handleOverlayClick} />
-            <Kiosk />
+            {/* <Kiosk /> */}
             <div className='fullContainer'>
             <BuildingContainer  toggleFloorContainer={toggleFloorContainer} buildingList={buildings} activateBuildingMap={activateBuildingMap} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideSearchFloor={hideSearchFloor} hideDefaultFloor={hideDefaultFloor} />
             <MapContainer       
@@ -500,6 +534,8 @@ function Container() {
                                 isCITBuilding2={isCITBuilding2}
                                 isRGRBuilding2={isRGRBuilding2}
                                 isSSCBuilding2={isSSCBuilding2}
+                                isCEAFABuilding2={isCEAFABuilding2}
+                                isGYMBuilding2={isGYMBuilding2}
                                 handleVideoEnd2={handleVideoEnd2}
                                 isvideoEnded2={isvideoEnded2}
                                 />

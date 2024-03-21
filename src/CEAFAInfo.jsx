@@ -70,5 +70,12 @@ export const floor4Rooms = [
     { name: 'Amphitheater',                         videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_ampitheater.mp4' },
     { name: 'Analytical Laboratory',                videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_analyticallaboratory.mp4' },
     { name: 'CHE Consultation Room',                videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_checonsultationroom.mp4' },
-    { name: 'Chemical Engineering Laboratory',      videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_chemicalengineeringlaboratory.mp4' }
-]
+    { name: 'Chemical Engineering Laboratory',      videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_chemicalengineeringlaboratory.mp4' },
+    { name: 'Circuits Laboratory',                  videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_circuitsaboratory.mp4' },
+    { name: 'EE Consultation Room',                 videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_eeconsultationroom.mp4' },
+    { name: 'EE Supply Room',                       videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_eesupplyroom.mp4' },
+    { name: 'Faculty 5',                            videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_faculty5.mp4' },
+    { name: 'Food Laboratory',                      videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_foodlaboratory.mp4' },
+    { name: 'Instrumentation Laboratory',           videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_instrumentationlaboratory.mp4' },
+    { name: 'Machine Laboratory',                   videoSrc: 'src/assets/CEAFAVideos/4thFloor/ceafa_machinelaboratory.mp4' }
+];
