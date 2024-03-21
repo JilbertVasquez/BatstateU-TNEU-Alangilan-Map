@@ -167,6 +167,15 @@
     transform: scale(1.2);
 }
 
+.floorPlanLayout .ceafa-video {
+    transform: scale(1);
+}
+
+.floorPlanLayout .gym-video {
+    object-fit: contain;
+    transform: scale(0.5);
+}
+
 
 @media only screen and (max-width: 1280px) {
     .floorSection {
