@@ -5,6 +5,7 @@ import MapContainer from './MapContainer';
 import React, { useState, useEffect } from 'react';
 import Overlay from './Overlay';
 import Kiosk from './Kiosk';
+import PathHandler from './PathHandler';
 
 function Container() {
 
@@ -492,6 +493,7 @@ function Container() {
 
     const selectCurrentKiosk = (buildingName) => {
         setSelectedKiosk(buildingName);
+        PathHandler(buildingName);
         setShowKiosk(false);
         console.log("SELECTED KIOSK" + buildingName);
     }

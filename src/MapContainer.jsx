@@ -10,6 +10,7 @@ import GYMBuilding from './GYMBuilding';
 import SteerHubBuilding from './SteerHubBuilding';
 
 import SearchRoom from './SearchRoom';
+import { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMVideoPH, defaultRGRVideoPH, defaultSSCVideoPH, defaultSTEERHUBCVideoPH } from './PathHandler';
 
 
 
@@ -21,6 +22,15 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
     //     setBackgroundImage(imagePath);
     // };
 
+
+    let defaultCEAFAVideo = defaultCEAFAVideoPH;
+    let defaultCICSVideo = defaultCICSVideoPH;
+    let defaultCITVideo = defaultCITVideoPH;
+    let defaultGYMVideo = defaultGYMVideoPH;
+    let defaultRGRVideo = defaultRGRVideoPH;
+    let defaultSSCVideo = defaultSSCVideoPH;
+    let defaultSTEERHUBCVideo = defaultSTEERHUBCVideoPH;
+
     
     
     return (
@@ -31,15 +41,15 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
 
         // <div className='mapContainer' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
         <div className='mapContainer'>
-            {isCampusMap && <img id='campusmap' src="src/assets/3dcampusv2.png"></img>}
+            {isCampusMap && <img id='campusmap' src="src/assets/campusmap.jpg"></img>}
             {/* {isCampusMap && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>} */}
-            {isCEAFABuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isCICSBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isCITBuilding && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isRGRBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isSCSBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isGYMBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
-            {isSteerHubBuilding && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>}
+            {isCEAFABuilding && <video src={defaultCEAFAVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
+            {isCICSBuilding && <video src={defaultCICSVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
+            {isCITBuilding && <video src={defaultCITVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
+            {isRGRBuilding && <video src={defaultRGRVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
+            {isSCSBuilding && <video src={defaultSSCVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
+            {isGYMBuilding && <video src={defaultGYMVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
+            {isSteerHubBuilding && <video src={defaultSTEERHUBCVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
 
 
             {isCICSBuilding2 && <video src="src\assets\campusmap.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
