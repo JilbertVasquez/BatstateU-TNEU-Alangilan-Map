@@ -76,7 +76,7 @@ function SearchRoom({ searchRoomInfo }) {
 
                     <div>
 
-                        
+                            {console.log(searchRoomInfo[0].building)}
                             {floorRoomsByBuilding[searchRoomInfo[0].building].map((rooms, floorIndex) => (
                                 <div key={floorIndex}>
                                     {rooms.map((room, roomIndex) => (

@@ -128,7 +128,7 @@ function Container() {
     const [isCICSBuilding, setCICSBuilding] = useState();
     const [isCITBuilding, setCITBuilding] = useState();
     const [isRGRBuilding, setRGRBuilding] = useState();
-    const [isSCSBuilding, setSCSBuilding] = useState();
+    const [isSCSBuilding, setSSCBuilding] = useState();
     const [isGYMBuilding, setGYMBuilding] = useState();
     const [isSteerHubBuilding, setSteerHubBuilding] = useState();
 
@@ -139,7 +139,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(false);
             setSteerHubBuilding(false);
 
@@ -150,7 +150,7 @@ function Container() {
             setCICSBuilding(true);
             setCITBuilding(false);
             setRGRBuilding(false);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(false);
             setSteerHubBuilding(false);
         }
@@ -160,7 +160,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(true);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(false);
             setSteerHubBuilding(false);
         }
@@ -170,7 +170,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(true);
             setRGRBuilding(false);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(false);
             setSteerHubBuilding(false);
         }
@@ -180,7 +180,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
-            setSCSBuilding(true);
+            setSSCBuilding(true);
             setGYMBuilding(false);
             setSteerHubBuilding(false);
         }
@@ -190,7 +190,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(true);
             setSteerHubBuilding(false);
         }
@@ -200,7 +200,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(false);
             setSteerHubBuilding(true);
         }
@@ -210,7 +210,7 @@ function Container() {
             setCICSBuilding(false);
             setCITBuilding(false);
             setRGRBuilding(false);
-            setSCSBuilding(false);
+            setSSCBuilding(false);
             setGYMBuilding(false);
             setSteerHubBuilding(false);
             setShowFloorContainer(false);
@@ -393,6 +393,7 @@ function Container() {
         setRGRBuilding(false);
         setCEAFABuilding(false);
         setGYMBuilding(false);
+        setSSCBuilding(false);
 
     }
 
@@ -405,6 +406,7 @@ function Container() {
         setRGRBuilding2(false);
         setCEAFABuilding2(false);
         setGYMBuilding2(false);
+        setSSCBuilding2(false);
     }
 
 
