@@ -11,19 +11,19 @@ function Container() {
 
     const [showOverlay, setShowOverlay] = useState(true);
 
-  useEffect(() => {
+    useEffect(() => {
     let timeoutId;
 
     const resetTimer = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
         setShowOverlay(true);
       }, 60000); // 60 seconds
     };
 
     // Reset timer on user activity
     const handleUserActivity = () => {
-      resetTimer();
+        resetTimer();
     };
 
     window.addEventListener('mousemove', handleUserActivity);

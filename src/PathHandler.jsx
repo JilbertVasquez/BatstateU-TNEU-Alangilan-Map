@@ -62,12 +62,12 @@ const PathHandler = (buildingName) => {
         defaultSTEERHUBCVideoPH = "src/assets/campus/gym/gymtosteerhub.mp4";
     } 
     else if (buildingName === 'RGR') {
-        defaultCEAFAVideoPH = "src/assets/campus/rgr/rgroceafa.mp4";
-        defaultCICSVideoPH = "src/assets/campus/rgr/rgrocics.mp4";
-        defaultCITVideoPH = "src/assets/campus/rgr/rgrocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/rgr/rgromgym.mp4";
-        defaultSSCVideoPH = "src/assets/campus/rgr/rgrossc.mp4";
-        defaultSTEERHUBCVideoPH = "src/assets/campus/rgr/rgrosteerhub.mp4";
+        defaultCEAFAVideoPH = "src/assets/campus/rgr/rgrtoceafa.mp4";
+        defaultCICSVideoPH = "src/assets/campus/rgr/rgrtocics.mp4";
+        defaultCITVideoPH = "src/assets/campus/rgr/rgrtocit.mp4";
+        defaultGYMVideoPH = "src/assets/campus/rgr/rgrtogym.mp4";
+        defaultSSCVideoPH = "src/assets/campus/rgr/rgrtossc.mp4";
+        defaultSTEERHUBCVideoPH = "src/assets/campus/rgr/rgrtosteerhub.mp4";
     } 
     else if (buildingName === 'STUDENT SERVICES') {
         defaultCEAFAVideoPH = "src/assets/campus/ssc/ssctoceafa.mp4";

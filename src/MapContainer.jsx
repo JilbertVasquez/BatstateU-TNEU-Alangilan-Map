@@ -55,8 +55,8 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
             {isCICSBuilding2 && <video src={defaultCICSVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isCITBuilding2 && <video src={defaultCITVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isRGRBuilding2 && <video src={defaultRGRVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
-            {isSSCBuilding2 && <video src={defaultSSCVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
-            {isGYMBuilding && <video src={defaultGYMVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
+            {isSSCBuilding2 && <video src={defaultSSCVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
+            {isGYMBuilding2 && <video src={defaultGYMVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isCEAFABuilding2 && <video src={defaultCEAFAVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isGYMBuilding2 && <video src={defaultGYMVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
 
