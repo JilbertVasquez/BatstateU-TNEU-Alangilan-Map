@@ -10,7 +10,7 @@ import GYMBuilding from './GYMBuilding';
 import SteerHubBuilding from './SteerHubBuilding';
 
 import SearchRoom from './SearchRoom';
-import { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMVideoPH, defaultRGRVideoPH, defaultSSCVideoPH, defaultSTEERHUBCVideoPH } from './PathHandler';
+import { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMVideoPH, defaultRGRVideoPH, defaultSSCVideoPH, defaultSTEERHUBVideoPH } from './PathHandler';
 
 
 
@@ -29,7 +29,7 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
     let defaultGYMVideo = defaultGYMVideoPH;
     let defaultRGRVideo = defaultRGRVideoPH;
     let defaultSSCVideo = defaultSSCVideoPH;
-    let defaultSTEERHUBCVideo = defaultSTEERHUBCVideoPH;
+    let defaultSTEERHUBCVideo = defaultSTEERHUBVideoPH;
 
     
     

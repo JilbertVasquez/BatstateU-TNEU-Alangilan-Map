@@ -101,7 +101,7 @@ return (
         {/* <input id='search-id' type="search" value={keyword} onChange={handleInputChange} placeholder="search office here..." /> */}
         <input id='search-id' type="search" value={keyword} onChange={(event) => { handleInputChange(event); backToNone(); }} placeholder="search office here..." />
         {searchResults.length > 0 ? (
-            <div className= 'buttonContainer'>
+            <div className= 'buttonContainer searchcon'>
                 {keyword.trim() && <SearchResults results={searchResults} lastClickedIndex={lastClickedIndex} toggleBackgroundButton={toggleBackgroundButton} toggleSearchFloorContainer={toggleSearchFloorContainer} updateRoomInfo={updateRoomInfo} hideDefaultFloor={hideDefaultFloor} />}
                 {/* {
                     searchResults.forEach(element => {
