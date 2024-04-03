@@ -107,11 +107,11 @@ function SteerHubBuilding() {
                 
                 </div>
                 <div className='roomHeader'>
-                    {isFloorContainerVisible && isFloor1Visible && <Floor1 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor2Visible && <Floor2 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor3Visible && <Floor3 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor4Visible && <Floor4 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
-                    {isFloorContainerVisible && isFloor5Visible && <Floor5 toggleFloorContainerVisibility={toggleFloorContainerVisibility} toogleFloorPlanVisibility={toogleFloorPlanVisibility} currentActiveButton={currentActiveButton}/>}
+                    {isFloorContainerVisible && isFloor1Visible && <Floor1 />}
+                    {isFloorContainerVisible && isFloor2Visible && <Floor2 />}
+                    {isFloorContainerVisible && isFloor3Visible && <Floor3 />}
+                    {isFloorContainerVisible && isFloor4Visible && <Floor4 />}
+                    {isFloorContainerVisible && isFloor5Visible && <Floor5 />}
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
@@ -129,153 +129,44 @@ function SteerHubBuilding() {
 }
 
 
-function Floor1 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
-    
-    const floor1Rooms = [
-        'Destructive Testing',
-        'Material Testing Center',
-        'Non-Destructive Testing',
-        'Office 1',
-        'Guard Station',
-        'Office 2',
-        'Innovation Hall / Exhibit Room',
-        'Café',
-        'University Shop',
-        'Reception Area'
-    ];
-
+function Floor1 () {
     return (
-        <div className='roomHeader'>
-            {/* <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 101');}}>Room 101</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 102');}}>Room 102</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 103');}}>Room 103</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 104');}}>Room 104</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 105');}}>Room 105</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 106');}}>Room 106</button> */}
-        
-            {floor1Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
-                ))}
-        
+        <div className='roomHeader steerhub'>
+            <h1>Floor Plan not available.</h1>
         </div>
     )
 }
 
-function Floor2 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
-    
-    const floor2Rooms = [
-        'Alternative Energy Research Center',
-        'Conference Room 1',
-        'Lab Office 1',
-        'Office 3',
-        'Lab Office 2',
-        'Climate Change Research Center',
-        'Lab Office 3',
-        'Marine Biodiversity Research Center'
-    ];
-
+function Floor2 () {
     return (
-        <div className='roomHeader'>
-            {/* <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 201');}}>Room 201</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 201');}}>Room 202</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CpE Faculty Room');}}>CpE Faculty Room</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CICS Student Services 1');}}>CICS Student Services 1</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CICS Consultation Room 1');}}>CICS Consultation Room 1</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('ICS Faculty Room');}}>ICS Faculty Room</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Accreditation Room 2');}}>Accreditation Room 2 </button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Office of the College Dean 2');}}>Office of the College Dean 2</button> */}
-        
-            {floor2Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
-                ))}
-        
+        <div className='roomHeader steerhub'>
+            <h1>Floor Plan not available.</h1>
         </div>
     )
 }
 
-function Floor3 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
-    
-    const floor3Rooms = [
-        'Lecture Room',
-        'Conference Room 2',
-        'Intellectual Property Management Office',
-        'Office 4',
-        'ICT Office',
-        'Server Room',
-        'ICT Research Center',
-        'Lab Office 4',
-        'Electronics System Design Laboratory'
-    ];
-
+function Floor3 () {
     return (
-        <div className='roomHeader'>
-            {/* <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CPE Laboratory');}}>CPE Laboratory</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CISCO Laboratory');}}>CISCO Laboratory</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('CpE Faculty Room');}}>CpE Faculty Room</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Software Laboratory 1');}}>Software Laboratory 1</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Software Laboratory 2');}}>Software Laboratory 2</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Software Laboratory 1');}}>Software Laboratory 3</button> */}
-        
-            {floor3Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
-                ))}
-        
+        <div className='roomHeader steerhub'>
+            <h1>Floor Plan not available.</h1>
         </div>
     )
 }
 
-function Floor4 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
-    
-    const floor4Rooms = [
-        'Audio Visual Room 1',
-        'Audio Visual Room 2',
-        'AVR Equipment Storage',
-        'Conference Room 3',
-        'CTI Head Office',
-        'Lab Office 5',
-        'Manufacturing Research Center'
-    ];
-
+function Floor4 () {
     return (
-        <div className='roomHeader'>
-            {/* <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 401');}}>Room 401</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Smart Classroom 1');}}>Smart Classroom 1</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Smart Classroom 2');}}>Smart Classroom 2</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Technical\'s Room');}}>Technical's Room</button> */}
-        
-            {floor4Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
-                ))}
-        
+        <div className='roomHeader steerhub'>
+            <h1>Floor Plan not available.</h1>
         </div>
     )
 }
 
-function Floor5 ({toggleFloorContainerVisibility, toogleFloorPlanVisibility, currentActiveButton}) {
-    
-    const floor5Rooms = [
-        'Kitchen',
-        'Office 5',
-        'Multi-Purpose Hall'
-    ];
-
+function Floor5 () {
     return (
-        <div className='roomHeader'>
-            {/* <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 501');}}>Room 501</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 502');}}>Room 502</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 503');}}>Room 503</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 504');}}>Room 504</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 505');}}>Room 505</button>
-            <button onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton('Room 506');}}>Room 506</button>
-         */}
-            {floor5Rooms.map((room, index) => (
-                    <button key={index} onClick={() => { toggleFloorContainerVisibility(); toogleFloorPlanVisibility(); currentActiveButton(room) }}>{room} </button>
-                ))}
-        
+        <div className='roomHeader steerhub'>
+            <h1>Floor Plan not available.</h1>
         </div>
     )
 }
-
-
 
 export default SteerHubBuilding

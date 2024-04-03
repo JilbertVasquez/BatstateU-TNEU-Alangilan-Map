@@ -1,23 +1,23 @@
 cit
-dean extension
+dean extension ~
 
-floor1 -all (2nd)
+floor1 -all (2nd) ~
 
 floor2
-faculty 2
-ml 1
+faculty 2 ~
+ml 1 ~
 
 floor3
-comlab 3
-eldc
+comlab 3 
+eldc 
 
 floor4
-room 403
-room 404
+room 403 ~
+room 404 ~
 
 floor5
-room 503
-room 504
+room 503 ~
+room 504 ~
 
 
 cics
@@ -25,9 +25,9 @@ floor 2
 ict faculty not setup ~
 
 floor 4 not setup
-room 401
-room 402
-info tech lab
+room 401 ~ 
+room 402 ~
+info tech lab ~
 
 gym
-bac
+all
