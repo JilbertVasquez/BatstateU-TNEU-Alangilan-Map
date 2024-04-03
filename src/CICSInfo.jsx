@@ -14,6 +14,7 @@ export const floor2Rooms = [
     { name: 'CICS Student Services',    videoSrc: 'src/assets/CICSVideos/Floor2/cics_cicsss.mp4' },
     { name: 'CICS Consultation Room',   videoSrc: 'src/assets/CICSVideos/Floor2/cics_consultationroom.mp4' },
     { name: 'ICS Faculty Room',         videoSrc: 'src/assets/CICSVideos/Floor2/cics_icsfaculty.mp4' },
+    { name: 'ICT Faculty Room',         videoSrc: 'src/assets/CICSVideos/Floor2/cics_ictfaculty.mp4' },
     { name: 'Accreditation Room',       videoSrc: 'src/assets/CICSVideos/Floor2/cics_accreditationroom.mp4' },
     { name: 'Deans Office',             videoSrc: 'src/assets/CICSVideos/Floor2/cics_deansoffice.mp4' }
 ];
@@ -32,6 +33,7 @@ export const floor4Rooms = [
     { name: 'Room 402',             videoSrc: 'src/assets/CICSVideos/Floor4/cics402.mp4' },
     { name: 'Smart Classroom 1',    videoSrc: 'src/assets/CICSVideos/Floor4/cics_smartclassroom1.mp4' },
     { name: 'Smart Classroom 2',    videoSrc: 'src/assets/CICSVideos/Floor4/cics_smartclassroom2.mp4' },
+    { name: 'Info Tech Lab',    videoSrc: 'src/assets/CICSVideos/Floor4/cics_infotechroom.mp4' },
     { name: 'Technical\'s Room',    videoSrc: 'src/assets/CICSVideos/Floor4/cics_technicianroom.mp4' }
 ];
 
