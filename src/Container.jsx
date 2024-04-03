@@ -12,37 +12,37 @@ function Container() {
     const [showOverlay, setShowOverlay] = useState(true);
 
     useEffect(() => {
-    let timeoutId;
+        let timeoutId;
 
-    const resetTimer = () => {
-        clearTimeout(timeoutId);
-        timeoutId = setTimeout(() => {
-        setShowOverlay(true);
-      }, 60000); // 60 seconds
-    };
+        const resetTimer = () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+            setShowOverlay(true);
+        }, 60000); // 60 seconds
+        };
 
-    // Reset timer on user activity
-    const handleUserActivity = () => {
+        // Reset timer on user activity
+        const handleUserActivity = () => {
+            resetTimer();
+        };
+
+        window.addEventListener('mousemove', handleUserActivity);
+        window.addEventListener('keydown', handleUserActivity);
+
+        // Initial timer start
         resetTimer();
+
+        // Cleanup
+        return () => {
+            clearTimeout(timeoutId);
+            window.removeEventListener('mousemove', handleUserActivity);
+            window.removeEventListener('keydown', handleUserActivity);
+        };
+    }, []);
+
+    const handleOverlayClick = () => {
+        setShowOverlay(false);
     };
-
-    window.addEventListener('mousemove', handleUserActivity);
-    window.addEventListener('keydown', handleUserActivity);
-
-    // Initial timer start
-    resetTimer();
-
-    // Cleanup
-    return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener('mousemove', handleUserActivity);
-      window.removeEventListener('keydown', handleUserActivity);
-    };
-  }, []);
-
-  const handleOverlayClick = () => {
-    setShowOverlay(false);
-  };
 
     // List of Buildings -> Floors -> Rooms
     // const buildings = [

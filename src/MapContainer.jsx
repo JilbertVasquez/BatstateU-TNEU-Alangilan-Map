@@ -1,5 +1,4 @@
-import './MapContainer.css'
-import FloorContainer from './FloorContainer'
+import './MapContainer.css';
 import React, { useState, useRef } from 'react';
 import CICSBuilding from './CICSBuilding';
 import CEAFABuilding from './CEAFABuilding';

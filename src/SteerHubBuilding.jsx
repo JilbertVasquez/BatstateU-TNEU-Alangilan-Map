@@ -69,42 +69,19 @@ function SteerHubBuilding() {
 
     const [isFloorContainerVisible, setFloorContainerVisible] = useState(true);
 
-    const [isFloorPlanVisible, setFloorPlanVisible] = useState(false);
-
     const toggleFloorSectionVisibility = () => {
         setFloorSectionVisible(!isFloorSectionVisible);
-    };
-
-    const toggleFloorContainerVisibility = () => {
-        setFloorContainerVisible(!isFloorContainerVisible);
-    };
-
-    const toogleFloorPlanVisibility = () => {
-        setFloorPlanVisible(!isFloorPlanVisible);
-    };
-
-    const [activeButton, setActiveButton] = useState('');
-
-    const currentActiveButton = (buttonText) => {
-        setActiveButton(buttonText);
     };
 
     const SteerHubFloors = ['Floor 1', 'Floor 2', 'Floor 3', 'Floor 4', 'Floor 5'];
 
     return(
         <div className={isFloorSectionVisible ? 'floorSection' : 'floorSection-hidden'}>
-            <div className={isFloorContainerVisible ? 'floorContainer' : 'floorContainer-hidden'}>
+            <div className={'floorContainer'}>
                 <div className='floorHeader'>
-                    {/* <button className={`FloorButtons ${lastClickedIndex === 0 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(0) }}>floor 1</button>
-                    <button className={`FloorButtons ${lastClickedIndex === 1 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(1) }}>floor 2</button>
-                    <button className={`FloorButtons ${lastClickedIndex === 2 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(2) }}>floor 3</button>
-                    <button className={`FloorButtons ${lastClickedIndex === 3 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(3) }}>floor 4</button>
-                    <button className={`FloorButtons ${lastClickedIndex === 4 ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(4) }}>floor 5</button> */}
-                    
                     {SteerHubFloors.map((floor, index) => (
                             <button key={index} className={`FloorButtons ${lastClickedIndex === index ? "floorButtonToggled" : ""}`}  onClick={() => { roomContainerVisible(index) }}>{floor} </button>
                         ))}
-                
                 </div>
                 <div className='roomHeader'>
                     {isFloorContainerVisible && isFloor1Visible && <Floor1 />}
@@ -115,19 +92,9 @@ function SteerHubBuilding() {
                 </div>
                 <button className='closeButton' onClick={() => {toggleFloorSectionVisibility();}}>CLOSE</button>
             </div>
-
-            <div className={isFloorPlanVisible ? 'floorPlanContainer' : 'floorPlanContainer-hidden'}>
-                <div className='floorPlanLayout'>
-                    {/* <img src="src/assets/Alangilan-pathway.jpg" alt="dummyphoto" className='floorPlanImage'/> */}
-                    {activeButton === 'Room 101' && <video src="src\assets\ifbread.mp4" autoPlay className='floorPlanImage'></video>}
-                    {activeButton === 'Room 401' && <video src="src\assets\summer.mp4" autoPlay className='floorPlanImage'></video>}
-                </div>
-                <button className='closeButton' onClick={() => {toogleFloorPlanVisibility(); toggleFloorContainerVisibility(); }}>BACK</button>
-            </div>
         </div>
     )
 }
-
 
 function Floor1 () {
     return (
