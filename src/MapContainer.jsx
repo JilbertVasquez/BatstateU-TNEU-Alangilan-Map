@@ -14,14 +14,6 @@ import { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMV
 
 
 function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, showGYMBuilding, showSteerHubBuilding,  isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, isGYMBuilding, isSteerHubBuilding, handleVideoEnd, isvideoEnded,  showSearchFloorContainer, searchRoomInfo ,isCICSBuilding2, isCITBuilding2, isRGRBuilding2, isSSCBuilding2, isCEAFABuilding2, isGYMBuilding2, handleVideoEnd2, isvideoEnded2}) {
-
-    // const [backgroundImage, setBackgroundImage] = useState('');
-
-    // const changeBackground = (imagePath) => {
-    //     setBackgroundImage(imagePath);
-    // };
-
-
     let defaultCEAFAVideo = defaultCEAFAVideoPH;
     let defaultCICSVideo = defaultCICSVideoPH;
     let defaultCITVideo = defaultCITVideoPH;
