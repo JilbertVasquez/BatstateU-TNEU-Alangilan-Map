@@ -63,7 +63,16 @@ h1 {
 }
 
 @media only screen and (max-width: 1280px) {
-h1, h3 {
-    font-size: 38px;
+    h1, h3 {
+        font-size: 38px;
+        }
+
+    .kioskButton {
+        font-size: 18px;
+    }
+
+    .kioskBuildingList {
+        height: 35%;
+        width: 30%;
     }
 }
