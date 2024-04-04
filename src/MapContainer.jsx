@@ -1,5 +1,4 @@
 import './MapContainer.css'
-import FloorContainer from './FloorContainer'
 import React, { useState, useRef } from 'react';
 import CICSBuilding from './CICSBuilding';
 import CEAFABuilding from './CEAFABuilding';
@@ -12,17 +11,7 @@ import SteerHubBuilding from './SteerHubBuilding';
 import SearchRoom from './SearchRoom';
 import { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMVideoPH, defaultRGRVideoPH, defaultSSCVideoPH, defaultSTEERHUBCVideoPH } from './PathHandler';
 
-
-
-function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, showGYMBuilding, showSteerHubBuilding,  isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, isGYMBuilding, isSteerHubBuilding, handleVideoEnd, isvideoEnded,  showSearchFloorContainer, searchRoomInfo ,isCICSBuilding2, isCITBuilding2, isRGRBuilding2, isSSCBuilding2, isCEAFABuilding2, isGYMBuilding2, handleVideoEnd2, isvideoEnded2}) {
-
-    // const [backgroundImage, setBackgroundImage] = useState('');
-
-    // const changeBackground = (imagePath) => {
-    //     setBackgroundImage(imagePath);
-    // };
-
-
+function MapContainer(  {showFloorContainer, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, showGYMBuilding, showSteerHubBuilding,  isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, isGYMBuilding, isSteerHubBuilding, handleVideoEnd, isvideoEnded,  showSearchFloorContainer, searchRoomInfo ,isCICSBuilding2, isCITBuilding2, isRGRBuilding2, isSSCBuilding2, isCEAFABuilding2, isGYMBuilding2, handleVideoEnd2, isvideoEnded2}) {
     let defaultCEAFAVideo = defaultCEAFAVideoPH;
     let defaultCICSVideo = defaultCICSVideoPH;
     let defaultCITVideo = defaultCITVideoPH;
@@ -31,18 +20,9 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
     let defaultSSCVideo = defaultSSCVideoPH;
     let defaultSTEERHUBCVideo = defaultSTEERHUBCVideoPH;
 
-    
-    
     return (
-        // <div className='mapContainer' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
-        //     {showFloor && showFloorContainer && <FloorContainer />}
-        //     {/* <img src="src\assets\bsu-alangilan-siteplan.jpg" alt="AlangilanCampus"/> */}
-        // </div>
-
-        // <div className='mapContainer' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
         <div className='mapContainer'>
             {isCampusMap && <img id='campusmap' src="src/assets/campusmap.jpg"></img>}
-            {/* {isCampusMap && <video src="src\assets\summer.mp4" autoPlay className='MapVideoWay' onEnded={handleVideoEnd}></video>} */}
             {isCEAFABuilding && <video src={defaultCEAFAVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
             {isCICSBuilding && <video src={defaultCICSVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
             {isCITBuilding && <video src={defaultCITVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
@@ -51,7 +31,6 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
             {isGYMBuilding && <video src={defaultGYMVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
             {isSteerHubBuilding && <video src={defaultSTEERHUBCVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
 
-
             {isCICSBuilding2 && <video src={defaultCICSVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isCITBuilding2 && <video src={defaultCITVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isRGRBuilding2 && <video src={defaultRGRVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
@@ -59,7 +38,6 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
             {isGYMBuilding2 && <video src={defaultGYMVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isCEAFABuilding2 && <video src={defaultCEAFAVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
             {isGYMBuilding2 && <video src={defaultGYMVideo} autoPlay className='MapVideoWay' onEnded={handleVideoEnd2}></video>}
-
 
             <div className='buildingSection'>
                 {isvideoEnded && showCEAFABuilding && showFloorContainer && <CEAFABuilding />}
@@ -71,9 +49,7 @@ function MapContainer(  {showFloorContainer, backgroundImage, showCEAFABuilding,
                 {isvideoEnded && showSteerHubBuilding && showFloorContainer && <SteerHubBuilding />}
 
                 {isvideoEnded2 && showSearchFloorContainer && <SearchRoom searchRoomInfo ={searchRoomInfo} />}
-
             </div>
-            {/* <img src="src\assets\bsu-alangilan-siteplan.jpg" alt="AlangilanCampus"/> */}
         </div>
     )
 }
