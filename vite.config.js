@@ -7,4 +7,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
   },
+  build: {
+    outDir: 'dist', // Specify your output directory
+    assetsDir: 'assets', // Specify assets directory to be copied
+    // Other build options...
+  },
 })

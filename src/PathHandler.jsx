@@ -18,79 +18,134 @@ export { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMV
 
 // export { searchCEAFAVideoPH, searchCICSVideoPH, searchCITVideoPH, searchGYMVideoPH, searchRGRVideoPH, searchSSCVideoPH, searchSTEERHUBCVideoPH };
 
+import gatetocics from "./assets/campus/gate/gatetocics.mp4";
+import gatetoceafa from "./assets/campus/gate/gatetoceafa.mp4";
+import gatetocit from "./assets/campus/gate/gatetocit.mp4";
+import gatetogym from "./assets/campus/gate/gatetogym.mp4";
+import gatetorgr from "./assets/campus/gate/gatetorgr.mp4";
+import gatetossc from "./assets/campus/gate/gatetossc.mp4";
+import gatetosteerhub from "./assets/campus/gate/gatetosteerhub.mp4";
+
+import cicstoceafa from "./assets/campus/cics/cicstoceafa.mp4";
+import cicstocit from "./assets/campus/cics/cicstocit.mp4";
+import cicstogym from "./assets/campus/cics/cicstogym.mp4";
+import cicstorgr from "./assets/campus/cics/cicstorgr.mp4";
+import cicstossc from "./assets/campus/cics/cicstossc.mp4";
+
+import ceafatocics from "./assets/campus/ceafa/ceafatocics.mp4";
+import ceafatocit from "./assets/campus/ceafa/ceafatocit.mp4"
+import ceafatogym from "./assets/campus/ceafa/ceafatogym.mp4"
+import ceafatorgr from "./assets/campus/ceafa/ceafatorgr.mp4"
+import ceafatossc from "./assets/campus/ceafa/ceafatossc.mp4"
+import ceafatosteerhub from "./assets/campus/ceafa/ceafatosteerhub.mp4"
+
+import cittoceafa from "./assets/campus/cit/cittoceafa.mp4";
+import cittocics from "./assets/campus/cit/cittocics.mp4";
+import cittogym from "./assets/campus/cit/cittogym.mp4";
+import cittorgr from "./assets/campus/cit/cittorgr.mp4";
+import cittossc from "./assets/campus/cit/cittossc.mp4";
+import cittosteerhub from "./assets/campus/cit/cittosteerhub.mp4";
+
+import gymtoceafa from "./assets/campus/gym/gymtoceafa.mp4";
+import gymtocics from "./assets/campus/gym/gymtocics.mp4";
+import gymtocit from "./assets/campus/gym/gymtocit.mp4";
+import gymtorgr from "./assets/campus/gym/gymtorgr.mp4";
+import gymtossc from "./assets/campus/gym/gymtossc.mp4";
+import gymtosteerhub from "./assets/campus/gym/gymtosteerhub.mp4";
+
+import rgrtoceafa from "./assets/campus/rgr/rgrtoceafa.mp4";
+import rgrtocics from "./assets/campus/rgr/rgrtocics.mp4";
+import rgrtocit from "./assets/campus/rgr/rgrtocit.mp4";
+import rgrtogym from "./assets/campus/rgr/rgrtogym.mp4";
+import rgrtossc from "./assets/campus/rgr/rgrtossc.mp4";
+import rgrtosteerhub from "./assets/campus/rgr/rgrtosteerhub.mp4";
+
+import ssctoceafa from "./assets/campus/ssc/ssctoceafa.mp4";
+import ssctocics from "./assets/campus/ssc/ssctocics.mp4";
+import ssctocit from "./assets/campus/ssc/ssctocit.mp4";
+import ssctogym from "./assets/campus/ssc/ssctogym.mp4";
+import ssctorgr from "./assets/campus/ssc/ssctorgr.mp4";
+import ssctosteerhub from "./assets/campus/ssc/ssctosteerhub.mp4";
+
+import steerhubtoceafa from "./assets/campus/steerhub/steerhubtoceafa.mp4";
+import steerhubtocics from "./assets/campus/steerhub/steerhubtocics.mp4";
+import steerhubtocit from "./assets/campus/steerhub/steerhubtocit.mp4";
+import steerhubtogym from "./assets/campus/steerhub/steerhubtogym.mp4";
+import steerhubtorgr from "./assets/campus/steerhub/steerhubtorgr.mp4";
+import steerhubtossc from "./assets/campus/steerhub/steerhubtossc.mp4";
 
 const PathHandler = (buildingName) => {
     if (buildingName === 'GATE') {
-        defaultCICSVideoPH = "src/assets/campus/gate/gatetocics.mp4";
-        defaultCEAFAVideoPH = "src/assets/campus/gate/gatetoceafa.mp4";
-        defaultCITVideoPH = "src/assets/campus/gate/gatetocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/gate/gatetogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/gate/gatetorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/gate/gatetossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/gate/gatetosteerhub.mp4";
+        defaultCICSVideoPH = gatetocics;
+        defaultCEAFAVideoPH = gatetocit;
+        defaultCITVideoPH = gatetocit;
+        defaultGYMVideoPH = gatetogym;
+        defaultRGRVideoPH = gatetorgr;
+        defaultSSCVideoPH = gatetossc;
+        defaultSTEERHUBVideoPH = gatetosteerhub;
     } 
     else if (buildingName === 'CICS') {
-        defaultCEAFAVideoPH = "src/assets/campus/cics/cicstoceafa.mp4";
-        defaultCITVideoPH = "src/assets/campus/cics/cicstocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/cics/cicstogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/cics/cicstorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/cics/cicstossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/cics/cicstosteerhub.mp4";
-        defaultCICSVideoPH = "src/assets/campus/default.mp4";
+        defaultCEAFAVideoPH = cicstoceafa;
+        defaultCITVideoPH = cicstocit;
+        defaultGYMVideoPH = cicstogym;
+        defaultRGRVideoPH = cicstorgr;
+        defaultSSCVideoPH = cicstossc;
+        defaultSTEERHUBVideoPH = cicstosteerhub;
+        defaultCICSVideoPH = gatetocics;
     } 
     else if (buildingName === 'CEAFA') {
-        defaultCICSVideoPH = "src/assets/campus/ceafa/ceafatocics.mp4";
-        defaultCITVideoPH = "src/assets/campus/ceafa/ceafatocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/ceafa/ceafatogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/ceafa/ceafatorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/ceafa/ceafatossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/ceafa/ceafatosteerhub.mp4";
-        defaultCEAFAVideoPH = "src/assets/campus/default.mp4";
+        defaultCICSVideoPH = ceafatocit;
+        defaultCITVideoPH = ceafatocit;
+        defaultGYMVideoPH = ceafatogym;
+        defaultRGRVideoPH = ceafatorgr;
+        defaultSSCVideoPH = ceafatossc;
+        defaultSTEERHUBVideoPH = ceafatosteerhub;
+        defaultCEAFAVideoPH = gatetoceafa;
     } 
     else if (buildingName === 'CIT') {
-        defaultCEAFAVideoPH = "src/assets/campus/cit/cittoceafa.mp4";
-        defaultCICSVideoPH = "src/assets/campus/cit/cittocics.mp4";
-        defaultGYMVideoPH = "src/assets/campus/cit/cittogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/cit/cittorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/cit/cittossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/cit/cittosteerhub.mp4";
-        defaultCITVideoPH = "src/assets/campus/default.mp4";
+        defaultCEAFAVideoPH = cittoceafa;
+        defaultCICSVideoPH = cittocics;
+        defaultGYMVideoPH = cittogym;
+        defaultRGRVideoPH = cittogym;
+        defaultSSCVideoPH = cittossc;
+        defaultSTEERHUBVideoPH = cittosteerhub;
+        defaultCITVideoPH = gatetocit;
     } 
     else if (buildingName === 'GYM') {
-        defaultCEAFAVideoPH = "src/assets/campus/gym/gymtoceafa.mp4";
-        defaultCICSVideoPH = "src/assets/campus/gym/gymtocics.mp4";
-        defaultCITVideoPH = "src/assets/campus/gym/gymtocit.mp4";
-        defaultRGRVideoPH = "src/assets/campus/gym/gymtorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/gym/gymtossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/gym/gymtosteerhub.mp4";
-        defaultGYMVideoPH = "src/assets/campus/default.mp4";
+        defaultCEAFAVideoPH = gymtoceafa;
+        defaultCICSVideoPH = gymtocics;
+        defaultCITVideoPH = gymtocit;
+        defaultRGRVideoPH = gymtorgr;
+        defaultSSCVideoPH = gymtossc;
+        defaultSTEERHUBVideoPH = gymtosteerhub;
+        defaultGYMVideoPH = gatetogym;
     } 
     else if (buildingName === 'RGR') {
-        defaultCEAFAVideoPH = "src/assets/campus/rgr/rgrtoceafa.mp4";
-        defaultCICSVideoPH = "src/assets/campus/rgr/rgrtocics.mp4";
-        defaultCITVideoPH = "src/assets/campus/rgr/rgrtocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/rgr/rgrtogym.mp4";
-        defaultSSCVideoPH = "src/assets/campus/rgr/rgrtossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/rgr/rgrtosteerhub.mp4";
-        defaultRGRVideoPH = "src/assets/campus/default.mp4";
+        defaultCEAFAVideoPH = rgrtoceafa;
+    defaultCICSVideoPH = rgrtocics
+        defaultCITVideoPH = rgrtocit;
+        defaultGYMVideoPH = rgrtogym;
+        defaultSSCVideoPH = rgrtossc;
+        defaultSTEERHUBVideoPH = rgrtosteerhub;
+        defaultRGRVideoPH = gatetorgr;
     } 
     else if (buildingName === 'STUDENT SERVICES') {
-        defaultCEAFAVideoPH = "src/assets/campus/ssc/ssctoceafa.mp4";
-        defaultCICSVideoPH = "src/assets/campus/ssc/ssctocics.mp4";
-        defaultCITVideoPH = "src/assets/campus/ssc/ssctocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/ssc/ssctogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/ssc/ssctorgr.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/ssc/ssctosteerhub.mp4";
-        defaultSSCVideoPH = "src/assets/campus/default.mp4";
+        defaultCEAFAVideoPH = ssctoceafa;
+        defaultCICSVideoPH = ssctocics;
+        defaultCITVideoPH = ssctocit;
+        defaultGYMVideoPH = ssctogym;
+        defaultRGRVideoPH = ssctorgr;
+        defaultSTEERHUBVideoPH = ssctosteerhub;
+        defaultSSCVideoPH = gatetossc;
     } 
     else if (buildingName === 'STEERHUB') {
-        defaultCEAFAVideoPH = "src/assets/campus/steerhub/steerhubtoceafa.mp4";
-        defaultCICSVideoPH = "src/assets/campus/steerhub/steerhubtocics.mp4";
-        defaultCITVideoPH = "src/assets/campus/steerhub/steerhubtocit.mp4";
-        defaultGYMVideoPH = "src/assets/campus/steerhub/steerhubtogym.mp4";
-        defaultRGRVideoPH = "src/assets/campus/steerhub/steerhubtorgr.mp4";
-        defaultSSCVideoPH = "src/assets/campus/steerhub/steerhubtossc.mp4";
-        defaultSTEERHUBVideoPH = "src/assets/campus/default.mp4";
+        defaultCEAFAVideoPH = steerhubtoceafa;
+        defaultCICSVideoPH = steerhubtocics;
+        defaultCITVideoPH = steerhubtocit;
+        defaultGYMVideoPH = steerhubtogym;
+        defaultRGRVideoPH = steerhubtorgr;
+        defaultSSCVideoPH = steerhubtossc;
+        defaultSTEERHUBVideoPH = gatetosteerhub;
     }
 }
 

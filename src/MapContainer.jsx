@@ -10,6 +10,8 @@ import SteerHubBuilding from './SteerHubBuilding';
 import SearchRoom from './SearchRoom';
 import { defaultCEAFAVideoPH, defaultCICSVideoPH, defaultCITVideoPH, defaultGYMVideoPH, defaultRGRVideoPH, defaultSSCVideoPH, defaultSTEERHUBVideoPH } from './PathHandler';
 
+import campusmap from "./assets/campusmap.jpg";
+
 function MapContainer(  {showFloorContainer, showCEAFABuilding, showCICSBuilding, showCITBuilding, showRGRBuilding, showSCSBuilding, showGYMBuilding, showSteerHubBuilding,  isCampusMap, isCICSBuilding, isCEAFABuilding, isCITBuilding, isRGRBuilding, isSCSBuilding, isGYMBuilding, isSteerHubBuilding, handleVideoEnd, isvideoEnded,  showSearchFloorContainer, searchRoomInfo ,isCICSBuilding2, isCITBuilding2, isRGRBuilding2, isSSCBuilding2, isCEAFABuilding2, isGYMBuilding2, handleVideoEnd2, isvideoEnded2}) {
     let defaultCEAFAVideo = defaultCEAFAVideoPH;
     let defaultCICSVideo = defaultCICSVideoPH;
@@ -21,7 +23,7 @@ function MapContainer(  {showFloorContainer, showCEAFABuilding, showCICSBuilding
 
     return (
         <div className='mapContainer'>
-            {isCampusMap && <img id='campusmap' src="src/assets/campusmap.jpg"></img>}
+            {isCampusMap && <img id='campusmap' src={campusmap}></img>}
             {isCEAFABuilding && <video src={defaultCEAFAVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
             {isCICSBuilding && <video src={defaultCICSVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}
             {isCITBuilding && <video src={defaultCITVideo} autoPlay className='MapVideoWay1' onEnded={handleVideoEnd}></video>}

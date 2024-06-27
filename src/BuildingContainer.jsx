@@ -1,5 +1,6 @@
 import './BuildingContainer.css'
 import * as buildings from './BuildingInfo';
+import batstateutneulogo from "./assets/batstateutneulogo.png";
 
 import React, { useState } from 'react';
 const buildingList = [
@@ -76,7 +77,7 @@ function BuildingContainer({ toggleFloorContainer, buildingList, activateBuildin
 
 return (
     <div className='buildingContainer'>
-        <img id = "bsulogo" src="src\assets\batstateu-tneu-logo.png" alt="bsu-tneu-logo" />
+        <img id = "bsulogo" src={batstateutneulogo} alt="bsu-tneu-logo" />
         <input id='search-id' type="search" value={keyword} onChange={(event) => { handleInputChange(event); backToNone(); }} placeholder="search office here..." />
         {searchResults.length > 0 ? (
             <div className= 'buttonContainer searchcon'>
