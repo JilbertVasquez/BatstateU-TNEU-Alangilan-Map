@@ -173,7 +173,7 @@
 
 .floorPlanLayout .gym-video {
     object-fit: contain;
-    transform: scale(0.6);
+    transform: scale(0.5);
 }
 
 .steerhub {
